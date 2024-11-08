@@ -46,34 +46,57 @@ function renderTaskList() {
     const taskElement = document.createElement("div");
     taskElement.className = "task-item";
 
-    const taskTitle = document.createElement("strong");
+    // Title
+    const taskTitle = document.createElement("div");
+    taskTitle.className = "task-title";
     taskTitle.textContent = task.title;
-    if (task.completed) taskTitle.classList.add("completed");
+    if (task.completed) {
+      taskTitle.classList.add("completed");
+    }
 
-    const taskDescription = document.createElement("span");
+    // Description
+    const taskDescription = document.createElement("div");
+    taskDescription.className = "task-description";
     taskDescription.textContent = task.description || "No description";
+    if (task.completed) {
+      taskDescription.classList.add("completed");
+    }
 
-    const taskDueTime = document.createElement("span");
+    // Due Time
+    const taskDueTime = document.createElement("div");
+    taskDueTime.className = "task-due-time";
     taskDueTime.textContent = `Due: ${task.dueTime.toLocaleString()}`;
+    if (task.completed) {
+      taskDueTime.classList.add("completed");
+    }
+
+    // Button container
+    const buttonContainer = document.createElement("div");
+    buttonContainer.className = "buttons";
 
     const completeButton = document.createElement("button");
+    completeButton.className = "complete-button";
     completeButton.textContent = task.completed ? "Undo" : "Complete";
     completeButton.onclick = () => toggleComplete(index);
 
     const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
     deleteButton.textContent = "Delete";
     deleteButton.onclick = () => deleteTask(index);
 
     const editButton = document.createElement("button");
+    editButton.className = "edit-button";
     editButton.textContent = "Edit";
     editButton.onclick = () => editTask(index);
+
+    buttonContainer.appendChild(completeButton);
+    buttonContainer.appendChild(deleteButton);
+    buttonContainer.appendChild(editButton);
 
     taskElement.appendChild(taskTitle);
     taskElement.appendChild(taskDescription);
     taskElement.appendChild(taskDueTime);
-    taskElement.appendChild(completeButton);
-    taskElement.appendChild(deleteButton);
-    taskElement.appendChild(editButton);
+    taskElement.appendChild(buttonContainer);
 
     taskListContainer.appendChild(taskElement);
   });
