@@ -1,17 +1,17 @@
 /***double numbers in an array */
-var numbers = [8, 12, 5, 2, 5, 7];
-var doubledNumbers = [];
+let numbers = [8, 12, 5, 2, 5, 7];
+let doubledNumbers = [];
 
 function doubled(arr) {
   for (var i = 0; i < arr.length; i++) {
-    var dub = arr[i];
-    var num = dub * 2;
+    let numToDouble = arr[i];
+    let num = numToDouble * 2;
     doubledNumbers.push(num);
   }
   return doubledNumbers;
 }
 
-var collectionNumbers = {
+let collectionNumbers = {
   originalNumbers: numbers,
   doubledNumbers: doubled(numbers),
 };
