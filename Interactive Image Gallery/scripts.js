@@ -45,11 +45,6 @@ const images = [
     thumbnail: "images/tree-down.jpg",
     caption: "This is the nine-th image caption.",
   },
-  {
-    fullSize: "images/shaking.jpg",
-    thumbnail: "images/shaking.jpg",
-    caption: "This is the third image caption.",
-  },
 ];
 
 let currentImageIndex = -1;
