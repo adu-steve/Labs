@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Image Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="gallery-container" class="gallery-container"></div>
+
+    <div id="lightbox" class="lightbox">
+      <button id="close-btn" class="close-btn">x</button>
+      <button id="prev-btn" class="nav-btn prev-btn">Previous</button>
+      <button id="next-btn" class="nav-btn next-btn">Next</button>
+      <div class="lightbox-content">
+        <img
+          id="lightbox-image"
+          src="./images/camera1.jpeg"
+          alt=""
+          class="lightbox-image"
+        />
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
