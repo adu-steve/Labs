@@ -32,6 +32,7 @@ input[type="datetime-local"] {
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 250px;
+  font-size: 14px;
 }
 
 button {
@@ -59,6 +60,7 @@ button:focus {
   gap: 15px;
   width: 100%;
   max-width: 600px;
+  margin-top: 20px;
 }
 
 .task-item {
@@ -67,8 +69,8 @@ button:focus {
   border-radius: 8px;
   padding: 15px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,17 +78,19 @@ button:focus {
   background-color: #f9f9f9;
 }
 
-.task-item .buttons {
-  display: flex;
-  gap: 10px;
+.task-item .task-title {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.task-item .buttons button {
-  background-color: #28a745;
+.task-item .task-description {
+  font-size: 14px;
+  color: #555;
 }
 
-.task-item .buttons button:hover {
-  background-color: #218838;
+.task-item .task-due-time {
+  font-size: 14px;
+  color: #888;
 }
 
 .task-item .completed {
@@ -94,8 +98,36 @@ button:focus {
   color: #888;
 }
 
-.completed {
-  opacity: 0.6;
+.task-item .buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.task-item .buttons button {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #28a745;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-item .buttons button:hover {
+  background-color: #218838;
+}
+
+/* Completed button styles */
+.task-item .buttons .complete-button {
+  background-color: #007bff;
+}
+
+.task-item .buttons .delete-button {
+  background-color: #dc3545;
+}
+
+.task-item .buttons .edit-button {
+  background-color: #ffc107;
 }
 
 #sort-asc,
@@ -106,6 +138,7 @@ button:focus {
 button:active {
   transform: scale(0.98);
 }
+
 .filter-buttons {
   text-align: center;
   margin: 20px 0;
@@ -123,8 +156,18 @@ button:active {
   transition: background-color 0.3s;
 }
 
+/* Active state for filter buttons */
 .filter-button.active {
   background-color: #357abd;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-item.completed {
+  opacity: 0.6;
 }
 
 @media (max-width: 600px) {
@@ -134,6 +177,10 @@ button:active {
   }
 
   button {
+    width: 100%;
+  }
+
+  .task-item {
     width: 100%;
   }
 }
