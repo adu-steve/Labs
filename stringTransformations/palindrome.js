@@ -6,4 +6,4 @@ function isPalindrome(str) {
   }
   return false;
 }
-console.log(isPalindrome("ama"));
+console.log(isPalindrome("kofi"));
