@@ -16,7 +16,7 @@ async function fetchAdvice() {
 
   try {
     const response = await fetch("https://api.adviceslip.com/advice");
-    if (!response.ok) throw new Error("Failed to fetch advice");
+    if (!response.ok) throw new Error("Failed to fetch advice from server");
 
     const data = await response.json();
     const advice = data.slip.advice;
