@@ -15,7 +15,7 @@ async function fetchAdvice() {
   fetchAdviceButton.disabled = true;
 
   try {
-    const response = await fetch("https://api.adviceslip.com/advices");
+    const response = await fetch("https://api.adviceslip.com/advice");
     if (!response.ok) throw new Error("Failed to fetch advice");
 
     const data = await response.json();
