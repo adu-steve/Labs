@@ -6,7 +6,7 @@ const errorMessage = document.getElementById("error-message");
 const retryButton = document.getElementById("retry-btn");
 const fetchAdviceButton = document.getElementById("fetch-advice-btn");
 
-// Fetch advice from the API
+// Fetch Advice API
 async function fetchAdvice() {
   // Show loading indicator and hide other messages
   loadingIndicator.classList.remove("hidden");
