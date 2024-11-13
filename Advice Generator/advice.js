@@ -6,7 +6,7 @@ const errorMessage = document.getElementById("error-message");
 const retryButton = document.getElementById("retry-btn");
 const fetchAdviceButton = document.getElementById("fetch-advice-btn");
 
-// Fetch advice from the API
+// Fetch Advice API
 async function fetchAdvice() {
   // Show loading indicator and hide other messages
   loadingIndicator.classList.remove("hidden");
@@ -15,8 +15,8 @@ async function fetchAdvice() {
   fetchAdviceButton.disabled = true;
 
   try {
-    const response = await fetch("https://api.adviceslip.com/advices");
-    if (!response.ok) throw new Error("Failed to fetch advice");
+    const response = await fetch("https://api.adviceslip.com/advice");
+    if (!response.ok) throw new Error("Failed to fetch advice from server");
 
     const data = await response.json();
     const advice = data.slip.advice;
