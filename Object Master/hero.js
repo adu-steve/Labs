@@ -64,7 +64,4 @@ document.getElementById("startBattle").addEventListener("click", function () {
 
   document.getElementById("result").textContent = result;
   document.getElementById("result").style.color = "green";
-
-  console.log(hero1.usePower());
-  console.log(hero2.usePower());
 });
