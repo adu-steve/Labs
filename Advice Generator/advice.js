@@ -15,6 +15,8 @@ async function fetchAdvice() {
   fetchAdviceButton.disabled = true;
 
   try {
+    fetchAdviceButton.style.display = "none";
+
     const response = await fetch("https://api.adviceslip.com/advice");
     if (!response.ok)
       throw new Error("Failed to fetch advice. Hit the 'try again' button");
@@ -31,6 +33,7 @@ async function fetchAdvice() {
   } finally {
     loadingIndicator.classList.add("hidden");
     fetchAdviceButton.disabled = false;
+    fetchAdviceButton.style.display = "";
   }
 }
 
