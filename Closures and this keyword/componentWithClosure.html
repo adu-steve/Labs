@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="closure.css" />
+    <title>Closure</title>
+  </head>
+  <body>
+    <div
+      id="timerId"
+      style="
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+        padding: 10px;
+        background-color: #b69191;
+        border-radius: 5px;
+        width: 300px;
+        margin: 20px auto;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    ></div>
+
+    <script>
+      function createTimer(duration, elementId) {
+        let remainingTime = duration;
+
+        const element = document.getElementById(elementId);
+
+        const updateTimer = () => {
+          if (remainingTime > 0) {
+            element.textContent = `The time remaining is: ${remainingTime} seconds`;
+            remainingTime--;
+          } else {
+            element.textContent = "Time is up!";
+            console.log("Timer has reached zero.");
+            clearInterval(timerInterval);
+          }
+        };
+
+        const timerInterval = setInterval(updateTimer, 1000);
+      }
+
+      createTimer(10, "timerId");
+    </script>
+  </body>
+</html>
