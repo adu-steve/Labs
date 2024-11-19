@@ -1,0 +1,245 @@
+@font-face {
+  font-family: myFont;
+  src: url(./assets/fonts/static/JetBrainsMono-Bold.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: myFont;
+  background-color: #18171f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  color: #fff;
+}
+h3 {
+  color: #817d92;
+}
+h5 {
+  margin-left: 20px;
+  color: #817d92;
+  font-size: medium;
+}
+h2 {
+  margin-right: 10px;
+}
+button {
+  background-color: #24232c;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.passwordDiv {
+  height: 3rem;
+  width: 400px;
+  background-color: #24232c;
+  border-radius: 1px solid white;
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  padding-right: 0;
+}
+.passwordDiv h4 {
+  background-color: #24232c;
+  border: none;
+  margin-left: 0;
+  flex-grow: 1;
+}
+.passwordDiv button {
+  background-color: #24232c;
+  border: none;
+  margin-left: 0;
+  padding-right: 20px;
+  size: 2rem;
+  font-size: 1px;
+  font-weight: bold;
+}
+
+#password {
+  background-color: #24232c;
+  border: none;
+  margin-left: 0;
+}
+.icon-copy:hover {
+  fill: #fff;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #24232c;
+  width: 400px;
+  padding: 20px;
+  gap: 20px;
+  margin-right: 0;
+}
+
+.range {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.range label {
+  margin-bottom: 8px;
+}
+#lengthValue {
+  margin-left: 10rem;
+  color: #a4ffaf;
+  font-size: 20px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.checkbox label {
+  font-size: 0.9rem;
+}
+
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.checkbox label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 4px solid white;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.checkbox input[type="checkbox"]:checked + label:before {
+  background-color: #a4ffaf;
+  border: 2px solid #a4ffaf;
+}
+
+.checkbox input[type="checkbox"]:checked + label:after {
+  content: url("./assets/images/icon-check.svg");
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox label:after {
+  content: "";
+}
+.strengthDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+
+  width: 100%;
+  height: 50px;
+  background-color: #18171f;
+  border-radius: 4px solid white;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  flex-direction: row;
+}
+.strength {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px solid rgb(236, 30, 30);
+  color: #fff;
+  padding-right: 15px;
+  font-weight: bold;
+  flex-direction: row;
+}
+
+.box {
+  width: 7px;
+  height: 20px;
+  border: 1px solid white;
+  gap: 1rem;
+  margin: 3px;
+}
+.generateBtn {
+  width: 100%;
+  height: 50px;
+  background-color: #a4ffaf;
+  border-radius: 0px;
+  color: #24232c;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: myFont;
+}
+.generateBtn:hover {
+  background-color: #18171f;
+  color: #a4ffaf;
+  border: 1px solid #a4ffaf;
+}
+#slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  background: #18171f;
+  cursor: pointer;
+}
+
+#slider::-webkit-slider-runnable-track {
+  /* background: #18171f; */
+  height: 10px;
+  border-radius: 5px;
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: solid 1px #a4ffaf;
+  cursor: pointer;
+  margin: -5px 0;
+}
+
+#slider::-webkit-slider-thumb:hover {
+  background-color: #18171f;
+}

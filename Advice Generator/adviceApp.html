@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advice Generator App</title>
+    <link rel="stylesheet" href="styleAdvice.css" />
+  </head>
+  <body>
+    <h1>Advice Generator</h1>
+    <div class="container">
+      <div class="advice-box">
+        <p id="advice-id">Advice <span id="advice-number">0</span></p>
+        <p id="advice-text">"Press the button to get some advice!"</p>
+      </div>
+      <button id="fetch-advice-btn">Get Advice</button>
+      <p id="loading-indicator" class="hidden">Loading...</p>
+      <p id="error-message" class="hidden">Something went wrong. Try again!</p>
+      <button id="retry-btn" class="hidden">Try Again</button>
+    </div>
+
+    <script src="advice.js"></script>
+  </body>
+</html>
