@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#myButton {
+  padding: 10px 20px;
+  background-color: #009578;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px;
+  width: 10rem;
+  height: 70px;
+}
+#myButton:hover {
+  background-color: #007562;
+}
+#myButton:active {
+  background-color: #e41a1a;
+}
