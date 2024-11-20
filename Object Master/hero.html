@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Superhero Battle Simulator</title>
+    <link rel="stylesheet" href="hero.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Superhero Battle Simulator</h1>
+
+      <div class="hero-selection">
+        <label for="hero1">Choose Hero 1:</label>
+        <select id="hero1">
+          <option value="Superman">Superman</option>
+          <option value="Batman">Batman</option>
+          <option value="Wonder Woman">Wonder Woman</option>
+        </select>
+
+        <label for="hero2">Choose Hero 2:</label>
+        <select id="hero2">
+          <option value="Superman">Superman</option>
+          <option value="Batman">Batman</option>
+          <option value="Wonder Woman">Wonder Woman</option>
+        </select>
+
+        <button id="startBattle">Start Battle</button>
+      </div>
+
+      <div id="result" class="results"></div>
+    </div>
+
+    <script src="hero.js"></script>
+  </body>
+</html>
