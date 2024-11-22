@@ -94,7 +94,9 @@ main {
   border: none;
   appearance: none;
   padding-right: 4rem;
-  font-size: 1rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   background-image: url("../../assets/images/icon-arrow-down.svg");
   background-repeat: no-repeat;
   background-position: right 2rem center;

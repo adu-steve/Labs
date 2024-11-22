@@ -24,11 +24,7 @@ const themeImg = document.querySelector(".theme-image");
 search.addEventListener("blur", hideNullError(search));
 
 document.addEventListener("keypress", async (e) => {
-  if (
-    search.value.trim() === "" &&
-    search.value.trim() === "" &&
-    e.key === "Enter"
-  ) {
+  if (search.value.trim() === "" && e.key === "Enter") {
     showNullError(search, wordContainer, errorTxt);
     renderBlock(container, [], []);
     return;
@@ -38,6 +34,8 @@ document.addEventListener("keypress", async (e) => {
     const word = search.value.trim();
     try {
       const data = await fetchWord(word);
+      console.log(data);
+
       const { phonetics, word: searchedWord } = data[0];
 
       const { audio: audioLink, text } = phonetics.find(
