@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Password Generator</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Password Generator Title -->
+    <h5>Password Generator</h5>
+
+    <!-- Password Display Section -->
+    <div class="passwordDiv">
+      <h4 id="passwordDisplay">P4$5W0rD!</h4>
+      <div id="copy">
+        <h5 class="copied">copied</h5>
+        <img
+          src="./assets/images/icon-copy.svg"
+          alt="Copy Icon"
+          class="icon-copy"
+        />
+      </div>
+    </div>
+
+    <!-- Length Slider -->
+
+    <!-- Options for Including Characters -->
+    <div class="options">
+      <div class="charLength">
+        <label for="slider" id="textLength">Character Length</label>
+        <span id="lengthValue">0</span>
+      </div>
+
+      <div class="range">
+        <input type="range" id="slider" min="0" max="20" value="0" />
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="uppercase" />
+        <label for="uppercase"
+          ><span class="label">Include Uppercase Letters</span>
+        </label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="lowercase" />
+        <label for="lowercase"
+          ><span class="label">Include Lowercase Letters</span></label
+        >
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="numbers" />
+        <label for="numbers"><span class="label">Include Numbers</span></label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="symbols" />
+        <label for="symbols"><span class="label">Include Symbols</span></label>
+      </div>
+      <!-- Password Strength Indicator -->
+      <div class="strengthDiv">
+        <h5 id="strengthStatus">STRENGTH</h5>
+        <div class="strength">
+          <h2></h2>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+      </div>
+      <!-- Generate Button -->
+      <button class="generateBtn">
+        Generate
+        <img src="./assets/images/icon-arrow-right.svg" alt="arrow-right" />
+      </button>
+      <h2 id="error"></h2>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="./index.js"></script>
+  </body>
+</html>
