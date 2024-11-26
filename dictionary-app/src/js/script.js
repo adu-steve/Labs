@@ -84,5 +84,18 @@ toggleBtn.addEventListener("change", () => {
 
 fontOptions.addEventListener("change", () => {
   const selectedFont = fontOptions.value;
+  fontOptions.style.fontFamily = selectedFont;
   document.body.style.fontFamily = selectedFont;
+});
+
+document.querySelector(".custom-select").addEventListener("click", function () {
+  this.classList.toggle("open"); // Toggle open state
+});
+
+document.querySelectorAll(".custom-option").forEach(function (option) {
+  option.addEventListener("click", function () {
+    const selectedText = this.textContent;
+    document.querySelector(".selected-option").textContent = selectedText;
+    document.querySelector(".custom-select").classList.remove("open");
+  });
 });
