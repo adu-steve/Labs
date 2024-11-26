@@ -34,7 +34,6 @@ document.addEventListener("keypress", async (e) => {
     const word = search.value.trim();
     try {
       const data = await fetchWord(word);
-      console.log(data);
 
       const { phonetics, word: searchedWord } = data[0];
 

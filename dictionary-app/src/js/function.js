@@ -63,7 +63,7 @@ function renderDefinition(definition, sources) {
 
 export function renderBlock(parent, data) {
   parent.innerHTML = "";
-  const definitionblock = document.createElement("div");
+  const definitionBlock = document.createElement("div");
 
   const definitionHTML = data
     .map((entry) => {
@@ -73,9 +73,10 @@ export function renderBlock(parent, data) {
     })
     .join("");
 
-  definitionblock.insertAdjacentHTML("beforeend", definitionHTML);
+  definitionBlock.insertAdjacentHTML("beforeend", definitionHTML);
+  console.log(definitionHTML);
 
-  parent.appendChild(definitionblock);
+  parent.appendChild(definitionBlock);
 }
 
 export function hideNullError(inputField) {
@@ -83,22 +84,22 @@ export function hideNullError(inputField) {
   inputField.style.outline = "";
 }
 
-export function showNullError(inputField, wordField, errorCont) {
+export function showNullError(inputField, wordField, errorContainer) {
   inputField.nextElementSibling.style.display = "block";
   inputField.style.outline = "1px solid #ff5252";
-  errorCont.classList.add("hide");
+  errorContainer.classList.add("hide");
   wordField.classList.add("hide");
 }
 
-export function showNotFoundError(inputField, wordField, errorCont) {
-  errorCont.classList.remove("hide");
+export function showNotFoundError(inputField, wordField, errorContainer) {
+  errorContainer.classList.remove("hide");
   wordField.classList.add("hide");
   inputField.nextElementSibling.style.display = "none";
   inputField.style.outline = "";
 }
 
-export function hideNotFoundError(inputField, wordCont) {
-  wordCont.classList.remove("hide");
+export function hideNotFoundError(inputField, wordContainer) {
+  wordContainer.classList.remove("hide");
   inputField.nextElementSibling.style.display = "none";
   inputField.style.outline = "";
 }
