@@ -1,0 +1,13 @@
+.homepage {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+  margin-bottom: auto;
+}
+
+@media (width <= 850px) {
+  .homepage {
+    flex-direction: column;
+  }
+}

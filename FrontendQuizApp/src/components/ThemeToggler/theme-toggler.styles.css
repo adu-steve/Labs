@@ -1,0 +1,47 @@
+.theme {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.theme__toggle {
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+.theme__toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme__toggle input:checked + .theme__toggle-slider:before {
+    transform: translateX(20px);
+}
+
+.theme__toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--purple);
+    transition: all 0.4s ease-in-out;
+    border-radius: 34px;
+
+}
+
+.theme__toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    left: 3px;
+    bottom: 3.5px;
+    background-color: white;
+    transition: all 0.4s ease-in-out;
+}

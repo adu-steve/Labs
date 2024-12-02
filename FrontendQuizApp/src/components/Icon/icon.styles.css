@@ -1,0 +1,48 @@
+.icon {
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img {
+    width: 100%;
+}
+
+@media (500px <= width <= 850px) {
+    h2{
+      font-size: 3rem;
+    }
+  
+    .options__item {
+      font-size: 1.5rem;
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+  
+  @media (width < 500px) {
+    h2{
+      font-size: 2rem;
+    }
+  
+    .options__item {
+      font-size: 1.25rem;
+    }
+
+    .icon {
+      width: 25px;
+      height: 25px;
+      padding: 3px;
+      border-radius: 3px;
+    }
+  }
+  
