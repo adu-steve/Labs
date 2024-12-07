@@ -1,0 +1,74 @@
+.add-ons {
+    .add-ons__container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .add-on__item {
+            width: 100%;
+
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            input[type="checkbox"]:checked + label {
+                background: var(--very-light-grey);
+                border-color: var(--blue);
+
+                .add-on__item-custom-check {
+                    background-color: var(--blue);
+                    border-color: var(--blue);
+                    background-image: url("/assets/images/icon-checkmark.svg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                }
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                cursor: pointer;
+                border: solid 1px var(--border-color);
+                border-radius: 10px;
+                padding: 13px 20px;
+                background: var(--white);
+
+                .add-on__item-custom-check {
+                    width: 20px;
+                    height: 20px;
+                    border: solid 1px var(--border-color);
+                    border-radius: 3px;
+                    background: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                .add-on__item-content {
+
+                    h3 {
+                        color: var(--denim);
+                        font-size: 1rem;
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+
+                    p {
+                        color: var(--grey);
+                        font-size: 0.9rem;
+                    }
+                }
+
+                .add-on__item-price {
+                    margin-left: auto;
+                    color: var(--blue);
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+
+}
