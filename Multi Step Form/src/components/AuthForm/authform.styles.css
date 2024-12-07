@@ -4,8 +4,8 @@
   border-radius: 15px;
   display: flex;
   gap: 20px;
-  height: 80vh;
-  width: 1000px;
+  height: 600px;
+  width: 940px;
 
   .auth__form-container {
     flex: 2;

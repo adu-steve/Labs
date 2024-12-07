@@ -7,6 +7,7 @@ import Plan from "./Plan/Plan.component";
 import StepContainer from "./PersonalInfo/Step/StepContainer.component";
 import AddOns from "./Add-ons/AddOns.component.tsx";
 import Summary from "./Summary/Summary.component.tsx";
+import Finished from "./Finished/Finished.component.tsx";
 
 function AuthForm() {
   const [currentStep, setCurrentStep] = useState<number>(
@@ -157,7 +158,11 @@ function AuthForm() {
         )}
 
         {/*thank you*/}
-        {complete && <div className="auth__form-thank-you">Thank you</div>}
+        {complete && (
+          <div className="auth__form-thank-you">
+            <Finished />
+          </div>
+        )}
 
         {!complete && (
           <div className="auth__form-button-container">
