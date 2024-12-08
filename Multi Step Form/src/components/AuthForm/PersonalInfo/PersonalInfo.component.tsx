@@ -1,19 +1,17 @@
 import Header from "../Header/Header.component";
-import { PersonalInfoType } from "../../../types";
-import FormInput from "./FormGroup/FormGroup.component";
+import { PersonalInfoType, StepTypes } from "../../../types";
+import FormGroup from "./FormGroup/FormGroup.component";
 
 import "./personal-info.styles.css";
 
 const PersonalInfo = ({
-  userName,
-  userErrorMsg,
+  name,
   email,
-  emailErrorMsg,
   phoneNumber,
-  phoneErrorMsg,
-  updateUserName,
-  updateEmail,
-  updatePhoneNumber,
+  updateForm,
+  nameErr,
+  emailErr,
+  phoneNumberErr,
 }: PersonalInfoType) => {
   return (
     <div className="personal-info wrapper">
@@ -23,29 +21,31 @@ const PersonalInfo = ({
       />
 
       <form>
-        <FormInput
+        <FormGroup
           inputType="text"
           label="Name"
           placeholder="e.g. Stephen King"
-          value={userName}
-          onChange={updateUserName}
-          errorMsg={userErrorMsg}
+          value={name}
+          updateForm={(value: string) => updateForm({ name: value }, "name")}
+          errorMsg={nameErr}
         />
-        <FormInput
+        <FormGroup
           inputType="email"
           label="Email address"
           placeholder="e.g. john.doe@example.com"
           value={email}
-          onChange={updateEmail}
-          errorMsg={emailErrorMsg}
+          updateForm={(value) => updateForm({ email: value }, "email")}
+          errorMsg={emailErr}
         />
-        <FormInput
+        <FormGroup
           inputType="tel"
           label="Phone number"
           placeholder="e.g. +1 234 567 890"
           value={phoneNumber}
-          onChange={updatePhoneNumber}
-          errorMsg={phoneErrorMsg}
+          updateForm={(value) =>
+            updateForm({ phoneNumber: value }, "phoneNumber")
+          }
+          errorMsg={phoneNumberErr}
         />
       </form>
     </div>

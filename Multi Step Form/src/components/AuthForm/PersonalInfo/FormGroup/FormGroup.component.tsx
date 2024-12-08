@@ -1,12 +1,12 @@
 import { FormGroupType } from "../../../../types";
 
-const FormInput = ({
+const FormGroup = ({
   label,
   inputType,
   placeholder,
   value,
   errorMsg,
-  onChange,
+  updateForm,
 }: FormGroupType) => {
   return (
     <div className="form-group">
@@ -19,11 +19,11 @@ const FormInput = ({
         id={label.split(" ").join("")}
         type={inputType}
         value={value}
-        onChange={onChange}
+        onChange={(e) => updateForm(e.target.value)}
         placeholder={placeholder}
       />
     </div>
   );
 };
 
-export default FormInput;
+export default FormGroup;

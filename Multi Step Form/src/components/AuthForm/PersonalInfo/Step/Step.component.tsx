@@ -12,10 +12,12 @@ function Step({
   disabled: boolean;
 }) {
   return (
-    <div className="step">
+    <div
+      className={`step ${disabled && "disabled"}`}
+      onClick={() => navigateTo(step)}
+    >
       <div
-        className={`step__number ${currentStep === step ? "active" : ""}`}
-        onClick={() => !disabled && navigateTo(step)}
+        className={`step__number ${currentStep === step - 1 ? "active" : ""}`}
       >
         <p>{step}</p>
       </div>

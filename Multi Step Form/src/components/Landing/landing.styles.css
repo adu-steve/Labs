@@ -7,8 +7,12 @@
   background: var(--bg);
   width: 100vw;
   min-height: 100vh;
-  padding: 50px 0;
+  padding: 20px;
   color: var(--blue);
+
+  h1{
+    color: var(--denim)
+  }
 
   .landing__image-container {
     display: flex;
@@ -19,11 +23,11 @@
 
   .landing__image {
     max-width: 500px;
-    width: 90%;
+    width: 100%;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
 }

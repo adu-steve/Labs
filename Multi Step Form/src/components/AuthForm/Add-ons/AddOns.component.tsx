@@ -1,6 +1,6 @@
 import "./addons.styles.css";
 import Header from "../Header/Header.component.tsx";
-import { AddOnsListType, ServiceType } from "../../../types.ts";
+import { AddOnsListType, AddonsType, ServiceType, StepTypes } from "../../../types.ts";
 
 const addonsList: AddOnsListType[] = [
   {
@@ -22,25 +22,28 @@ const addonsList: AddOnsListType[] = [
     price: 2,
   },
 ];
-const AddOns = ({
-  addons,
-  handleAddons,
-}: {
-  addons: ServiceType[];
-  handleAddons: ({ title, price }: ServiceType) => void;
-}) => {
-  const timeFrame = localStorage.getItem("timeframe");
+
+const AddOns = ({ addons, updateForm, timeFrame, addonsErr }: AddonsType) => {
+  const handleAddonToggle = (item: ServiceType) => {
+    const currentAddons = addons ?? [];
+    const updatedAddons = currentAddons.some(
+      (addon) => addon.title === item.title
+    )
+      ? currentAddons.filter((addon) => addon.title !== item.title)
+      : [...currentAddons, { title: item.title, price: item.price }];
+
+    updateForm({ addons: updatedAddons });
+  };
 
   const addon = addonsList.map((item: AddOnsListType) => (
     <div key={item.key} className="add-on__item">
       <input
         type="checkbox"
-        name=""
         id={item.title}
-        onChange={() => handleAddons(item)}
-        checked={
-          !!addons.find((addOn: ServiceType) => addOn.title === item.title)
-        }
+        onChange={() => handleAddonToggle(item)}
+        checked={(addons ?? []).some(
+          (addon: ServiceType) => addon.title === item.title
+        )}
       />
       <label htmlFor={item.title}>
         <span className={"add-on__item-custom-check"}></span>
@@ -65,7 +68,9 @@ const AddOns = ({
         description={"Add-ons help enhance your gaming experience"}
       />
 
+      {addonsErr && <p className={"error"}>{addonsErr}</p>}
       <div className="add-ons__container">{addon}</div>
+
     </div>
   );
 };

@@ -1,32 +1,9 @@
 import Header from "../Header/Header.component";
 import Cards from "./Card/Cards.component.tsx";
 import TimeFrameToogler from "./TimeFrameToggler/TimeFrameToggler.component.tsx";
-import { useEffect, useState } from "react";
-import { ServiceType } from "../../../types.ts";
+import { StepTypes } from "../../../types.ts";
 
-const Plan = () => {
-  const [plan, setPlan] = useState<ServiceType>(() => {
-    const storedPlan = localStorage.getItem("plan");
-    return storedPlan ? JSON.parse(storedPlan) : { title: "arcade", price: 9 };
-  });
-
-  const [timeFrame, setTimeFrame] = useState<string>(
-    () => localStorage.getItem("timeframe") || "monthly"
-  );
-
-  const handlePlan = ({ title, price }: ServiceType) => {
-    setPlan({ title, price });
-  };
-
-  const handleTimeFrame = () => {
-    setTimeFrame(timeFrame === "monthly" ? "yearly" : "monthly");
-  };
-
-  useEffect(() => {
-    localStorage.setItem("plan", JSON.stringify(plan));
-    localStorage.setItem("timeframe", timeFrame);
-  }, [plan, timeFrame]);
-
+const Plan = ({ plan, updateForm, timeFrame }: StepTypes) => {
   return (
     <div className="plan wrapper">
       <Header
@@ -34,10 +11,16 @@ const Plan = () => {
         title="Select your plan"
       />
 
-      <Cards plan={plan} handlePlan={handlePlan} timeFrame={timeFrame} />
+      <Cards
+        plan={plan}
+        updateForm={({title, price}) =>
+          updateForm({ plan: { title, price} })
+        }
+        timeFrame={timeFrame}
+      />
       <TimeFrameToogler
         timeFrame={timeFrame}
-        handleTimeFrame={handleTimeFrame}
+        updateForm={(value) => updateForm({ timeFrame: value })}
       />
     </div>
   );
