@@ -1,0 +1,68 @@
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  .card {
+    background: var(--white);
+    border: solid 1px var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 20px;
+    /* min-height: 200px; */
+    cursor: pointer;
+
+    &.active {
+      border-color: var(--blue);
+      background: var(--very-light-grey);
+    }
+
+    img {
+      width: 50px;
+    }
+
+    .card__plan {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .card__plan-name {
+        color: var(--denim);
+        font-size: 1.2rem;
+        text-transform: capitalize;
+      }
+
+      .card__plan-price {
+        color: var(--grey);
+      }
+
+      .card__plan-free-trial {
+        color: var(--denim);
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (width < 900px) {
+    flex-direction: column;
+    gap: 10px;
+
+    .card {
+      flex-direction: row;
+      justify-content: flex-start;
+      flex: unset;
+      width: 100%;
+      gap: 20px;
+      padding: 10px;
+
+      .card__plan {
+        gap: 5px;
+      }
+    }
+  }
+}
