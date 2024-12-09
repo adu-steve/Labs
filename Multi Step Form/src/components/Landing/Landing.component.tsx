@@ -1,50 +1,29 @@
-import { useEffect } from "react";
 import "./landing.styles.css";
 import { useNavigate } from "react-router-dom";
 
-function LaningPage() {
+function FrontPage() {
   const navigate = useNavigate();
 
   const goToForm = () => {
     localStorage.removeItem("complete");
-    localStorage.setItem("inProgress", "true");
     navigate("/auth-form");
   };
 
-  useEffect(() => {
-    const inProgress = JSON.parse(
-      localStorage.getItem("inProgress") || "false"
-    );
-    {
-      inProgress && navigate("/auth-form");
-    }
-  }, []);
   return (
     <div className={"landing"}>
-      <button className={"landing__button"} onClick={goToForm}>
-        Get Started
-      </button>
-
-      <h1>What to expert from the form 👇</h1>
-      <div className="landing__image-container">
-        <img
-          className={"landing__image"}
-          src="/assets/images/info.png"
-          alt={"info"}
-        />
-        <img
-          className={"landing__image"}
-          src="/assets/images/plan.png"
-          alt={"plan"}
-        />
-        <img
-          className={"landing__image"}
-          src="/assets/images/add-ons.png"
-          alt={"add-ons"}
-        />
+      <div className={"svg__image__mobile"}></div>
+      <div className={"landing__content"}>
+        <div className={"svg__image"}></div>
+        <div className={"frontend__content"}>
+          <h1>Welcome User 😁</h1>
+          <p>Please proceed to click on the button to fill in the details.</p>
+          <button className={"landing__button"} onClick={goToForm}>
+            Get Started
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
-export default LaningPage;
+export default FrontPage;

@@ -103,16 +103,6 @@ function AuthForm() {
         formIsValid = false;
     }
 
-    if (currentStep === 2) {
-      const newErrors = {
-        addonsErr: formFieldValidation("addons", formData.addons.join(",")),
-      };
-
-      setErrors((prevErrors) => ({ ...prevErrors, ...newErrors }));
-
-      if (newErrors.addonsErr) formIsValid = false;
-    }
-
     if (currentStep === 3) {
       const newErrors = {
         nameErr: formFieldValidation("name", formData.name),
@@ -121,7 +111,6 @@ function AuthForm() {
           "phoneNumber",
           formData.phoneNumber
         ),
-        addonsErr: formFieldValidation("addons", formData.addons.join(",")),
       };
       if (Object.values(newErrors).every((error) => error === "")) {
         localStorage.setItem("isComplete", "true");
@@ -134,7 +123,9 @@ function AuthForm() {
       }
     }
 
-    formIsValid && setCurrentStep(() => nextStep(currentStep, totalSteps));
+    if (formIsValid) {
+      setCurrentStep(() => nextStep(currentStep, totalSteps));
+    }
   };
 
   useEffect(() => {

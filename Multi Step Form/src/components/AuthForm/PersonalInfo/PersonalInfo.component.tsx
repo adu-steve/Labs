@@ -1,5 +1,5 @@
 import Header from "../Header/Header.component";
-import { PersonalInfoType, StepTypes } from "../../../types";
+import { PersonalInfoType } from "../../../types";
 import FormGroup from "./FormGroup/FormGroup.component";
 
 import "./personal-info.styles.css";

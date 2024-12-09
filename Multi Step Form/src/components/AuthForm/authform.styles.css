@@ -4,8 +4,8 @@
   border-radius: 15px;
   display: flex;
   gap: 20px;
-  height: 80vh;
-  width: 80%;
+  height: 600px;
+  width: 940px;
   margin: 0 auto;
 
   .auth__form-container {
@@ -72,7 +72,6 @@
       gap: 20px;
       z-index: 9;
       justify-content: flex-start;
-      
 
       .auth__form-button-container {
         padding: 15px;
@@ -82,7 +81,7 @@
       .wrapper {
         width: 90%;
         min-height: 300px;
-     
+
         margin-top: 30%;
         padding: 20px;
         border-radius: 15px;

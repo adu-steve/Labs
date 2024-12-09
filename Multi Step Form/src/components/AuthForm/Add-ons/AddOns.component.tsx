@@ -1,6 +1,6 @@
 import "./addons.styles.css";
 import Header from "../Header/Header.component.tsx";
-import { AddOnsListType, AddonsType, ServiceType, StepTypes } from "../../../types.ts";
+import { AddOnsListType, AddonsType, ServiceType } from "../../../types.ts";
 
 const addonsList: AddOnsListType[] = [
   {
@@ -23,7 +23,7 @@ const addonsList: AddOnsListType[] = [
   },
 ];
 
-const AddOns = ({ addons, updateForm, timeFrame, addonsErr }: AddonsType) => {
+const AddOns = ({ addons, updateForm, timeFrame }: AddonsType) => {
   const handleAddonToggle = (item: ServiceType) => {
     const currentAddons = addons ?? [];
     const updatedAddons = currentAddons.some(
@@ -68,9 +68,7 @@ const AddOns = ({ addons, updateForm, timeFrame, addonsErr }: AddonsType) => {
         description={"Add-ons help enhance your gaming experience"}
       />
 
-      {addonsErr && <p className={"error"}>{addonsErr}</p>}
       <div className="add-ons__container">{addon}</div>
-
     </div>
   );
 };
