@@ -64,7 +64,7 @@ const Quiz = ({ questions, setHasCompleted, setScore, score }: QuizProps) => {
     setOptions(questions[questionNumber].options);
     setAnswer("");
     setSelectedAnswer("");
-  }, [questionNumber]);
+  }, [questions, questionNumber]);
 
   return (
     <div className={"quiz"}>
