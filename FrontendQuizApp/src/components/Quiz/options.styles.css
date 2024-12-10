@@ -1,56 +1,56 @@
 .options-container .options .options__item {
-    font-size: 1.2rem;
-    border: solid 2px transparent;
-    text-align: left;
+  font-size: 1.2rem;
+  border: solid 2px transparent;
+  text-align: left;
 }
 
 .options-container .option__char {
-    background: #0000000f;
-    color: var(--gray-navy);
-    padding: 10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
+  background: #0000000f;
+  color: var(--gray-navy);
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .options-container .options__item:hover .option__char {
-    color: var(--purple);
-    background: #a729f523;
+  color: var(--purple);
+  background: #a729f523;
 }
 
 .options-container .options .options__item.selected {
-    border-color: var(--purple);
+  border-color: var(--purple);
 }
 
 .options-container .options .options__item.selected .option__char {
-    background: var(--purple);
-    color: var(--pure-white);
+  background: var(--purple);
+  color: var(--pure-white);
 }
 
 .options-container .options .options__item.correct {
-    border-color: var(--green);
+  border-color: var(--green);
 }
 
 .options-container .options .options__item.correct .option__char {
-    background: var(--green);
-    color: var(--pure-white);
+  background: var(--green);
+  color: var(--pure-white);
 }
 
 .options-container .options .options__item.incorrect {
-    border-color: var(--red);
+  border-color: var(--red);
 }
 
 .options-container .options .options__item.incorrect .option__char {
-    background: var(--red);
-    color: var(--pure-white);
+  background: var(--red);
+  color: var(--pure-white);
 }
 
 .options-container .answer-icon {
-    margin-left: auto;
-    width: 25px;
+  margin-left: auto;
+  width: 25px;
 }

@@ -27,11 +27,6 @@ const Quiz = ({ questions, setHasCompleted, setScore, score }: QuizProps) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [showError, setShowError] = useState<boolean>(false);
 
-  /**
-   * Increments the questionNumber state by 1 if the user has not reached the
-   * last question. If the user has reached the last question, it logs "complete"
-   * to the console and does not increment the state.
-   */
   const handleNextQuestion = () =>
     questionNumber === questions.length - 1
       ? handleCompleted()
