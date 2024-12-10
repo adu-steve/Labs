@@ -23,7 +23,7 @@ const HomepageComponent = ({ setQuiz }: { setQuiz: (value: Data) => void }) => {
             className={`options__item`}
             onClick={() => getQuiz({ value: topic.label, callback: setQuiz })}
           >
-            <IconComponent icon={topic.icon} customClassName={topic.label} />{" "}
+            <IconComponent icon={topic.icon} customClassName={topic.label} />
             <h4>{topic.label}</h4>
           </button>
         ))}
