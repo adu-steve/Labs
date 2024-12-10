@@ -1,14 +1,3 @@
-import { FormItems } from "../types";
-
-const initialValues: FormItems = {
-  name: "",
-  email: "",
-  phoneNumber: "",
-  timeFrame: "monthly",
-  plan: { price: 9, title: "arcade" },
-  addons: [],
-};
-
 export const prevStep = (currentStep: number) => {
   if (currentStep === 0) return currentStep;
   return currentStep - 1;
