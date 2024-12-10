@@ -1,6 +1,6 @@
 .options-container .options .options__item {
   font-size: 1.2rem;
-  border: solid 2px transparent;
+  border: solid 5px transparent;
   text-align: left;
 }
 
@@ -52,5 +52,6 @@
 
 .options-container .answer-icon {
   margin-left: auto;
-  width: 25px;
+  width: 50px;
+  height: 50px;
 }
