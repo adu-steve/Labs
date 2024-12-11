@@ -1,4 +1,4 @@
-import "./landing.styles.css";
+import "./landing.css";
 import { useNavigate } from "react-router-dom";
 
 function FrontPage() {

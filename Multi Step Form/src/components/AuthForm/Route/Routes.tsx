@@ -1,4 +1,4 @@
-function Step({
+function Route({
   step,
   description,
   currentStep,
@@ -31,4 +31,4 @@ function Step({
   );
 }
 
-export default Step;
+export default Route;

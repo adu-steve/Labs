@@ -1,5 +1,5 @@
-import Step from "./Step.component";
-import "./step.styles.css";
+import Route from "./Routes";
+import "./route.css";
 
 const StepArr = [
   { step: 1, description: "Your Info" },
@@ -20,7 +20,7 @@ function StepContainer({
   return (
     <div className="step-container">
       {StepArr.map((step, index) => (
-        <Step
+        <Route
           key={index}
           step={step.step}
           description={step.description}
