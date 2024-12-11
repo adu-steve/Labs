@@ -1,4 +1,4 @@
-import "./addons.styles.css";
+import "./addons.css";
 import Header from "../Header/Header.component.tsx";
 import { AddOnsListType, AddonsType, ServiceType } from "../../../types.ts";
 

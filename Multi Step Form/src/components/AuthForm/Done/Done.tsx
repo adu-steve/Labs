@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const ThankYou = ({ reset }: { reset: () => void }) => {
+const Done = ({ reset }: { reset: () => void }) => {
   const navigate = useNavigate();
 
   const goHome = () => {
@@ -24,4 +24,4 @@ const ThankYou = ({ reset }: { reset: () => void }) => {
   );
 };
 
-export default ThankYou;
+export default Done;

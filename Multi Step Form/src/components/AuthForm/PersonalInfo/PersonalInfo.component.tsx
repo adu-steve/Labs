@@ -1,6 +1,6 @@
 import Header from "../Header/Header.component";
 import { PersonalInfoType } from "../../../types";
-import FormGroup from "./FormGroup/FormGroup.component";
+import FormGroup from "../FormGroup/FormGroup";
 
 import "./personal-info.styles.css";
 

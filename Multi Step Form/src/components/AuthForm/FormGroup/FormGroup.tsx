@@ -1,4 +1,4 @@
-import { FormGroupType } from "../../../../types";
+import { FormGroupType } from "../../../types";
 
 const FormGroup = ({
   label,

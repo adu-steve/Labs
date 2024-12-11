@@ -1,4 +1,4 @@
-const formFieldValidation = (field: string, value: string) => {
+const fieldValidation = (field: string, value: string) => {
   let errorMessage = "";
 
   switch (field) {
@@ -27,7 +27,7 @@ const formFieldValidation = (field: string, value: string) => {
       break;
 
     case "addons":
-        errorMessage = !value.trim() ? "Please select at least one add-on." : "";
+      errorMessage = !value.trim() ? "Please select at least one add-on." : "";
       break;
 
     default:
@@ -37,4 +37,4 @@ const formFieldValidation = (field: string, value: string) => {
   return errorMessage;
 };
 
-export default formFieldValidation;
+export default fieldValidation;
