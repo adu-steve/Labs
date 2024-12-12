@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import FrontPage from "./components/Landing/Landing.tsx";
-import AuthForm from "./components/AuthForm/AuthForm.component.tsx";
+import AuthForm from "./components/AuthForm/AuthForm.tsx";
 
 function App() {
   return (

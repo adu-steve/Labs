@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import PersonalInfo from "./PersonalInfo/PersonalInfo.component";
-import { FormItems } from "../../types";
-import Plan from "./Plan/Plan.component";
+import PersonalInfo from "./PersonalInfo/PersonalInfo.tsx";
+import { FormItems } from "../../types.ts";
+import Plan from "./Plan/Plan.component.tsx";
 import AddOns from "./Add-ons/Addons.tsx";
-import Summary from "./Summary/Summary.component.tsx";
+import Summary from "./Summary/Summary.tsx";
 import StepContainer from "./Route/RouteContainer.tsx";
 import fieldValidation from "../../utils/field.validation.ts";
 import Done from "./Done/Done.tsx";
+import { useAppSelector } from "../../store.ts";
 
 import "./authform.css";
 import {
@@ -37,6 +38,8 @@ const initialErrorValues = {
 const totalSteps: number = 4;
 
 function AuthForm() {
+  const { name, email, phoneNumber } = useAppSelector((state) => state.form);
+
   const [formData, setFormData] = useState<FormItems>(() =>
     JSON.parse(
       localStorage.getItem("formData") || JSON.stringify(initialValues)
@@ -86,9 +89,9 @@ function AuthForm() {
 
     if (currentStep === 0) {
       const newErrors = {
-        nameErr: fieldValidation("name", formData.name),
-        emailErr: fieldValidation("email", formData.email),
-        phoneNumberErr: fieldValidation("phoneNumber", formData.phoneNumber),
+        nameErr: fieldValidation("name", name),
+        emailErr: fieldValidation("email", email),
+        phoneNumberErr: fieldValidation("phoneNumber", phoneNumber),
       };
 
       setErrors((prevErrors) => ({ ...prevErrors, ...newErrors }));
@@ -99,9 +102,9 @@ function AuthForm() {
 
     if (currentStep === 3) {
       const newErrors = {
-        nameErr: fieldValidation("name", formData.name),
-        emailErr: fieldValidation("email", formData.email),
-        phoneNumberErr: fieldValidation("phoneNumber", formData.phoneNumber),
+        nameErr: fieldValidation("name", name),
+        emailErr: fieldValidation("email", email),
+        phoneNumberErr: fieldValidation("phoneNumber", phoneNumber),
       };
       if (Object.values(newErrors).every((error) => error === "")) {
         localStorage.setItem("isComplete", "true");
@@ -121,15 +124,8 @@ function AuthForm() {
 
   useEffect(() => {
     localStorage.setItem("currentStep", String(currentStep));
-  }, [currentStep]);
-
-  useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(formData));
-  }, [formData]);
-
-  useEffect(() => {
     localStorage.setItem("inProgress", JSON.stringify("true"));
-  }, []);
+  }, [currentStep]);
 
   return (
     <div className="auth__form">

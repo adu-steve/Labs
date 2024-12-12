@@ -1,18 +1,18 @@
 import Header from "../Header/Header.component";
 import { PersonalInfoType } from "../../../types";
 import FormGroup from "../FormGroup/FormGroup";
+import { useAppSelector, useAppDispatch } from "../../../store";
+import { setName, setEmail, setPhoneNumber } from "../../../features/formSlice";
 
 import "./personal-info.styles.css";
 
 const PersonalInfo = ({
-  name,
-  email,
-  phoneNumber,
-  updateForm,
   nameErr,
   emailErr,
   phoneNumberErr,
 }: PersonalInfoType) => {
+  const dispatch = useAppDispatch();
+  const { name, email, phoneNumber } = useAppSelector((state) => state.form);
   return (
     <div className="personal-info wrapper">
       <Header
@@ -26,7 +26,7 @@ const PersonalInfo = ({
           label="Name"
           placeholder="e.g. Stephen King"
           value={name}
-          updateForm={(value: string) => updateForm({ name: value }, "name")}
+          updateForm={(value: string) => dispatch(setName(value))}
           errorMsg={nameErr}
         />
         <FormGroup
@@ -34,7 +34,7 @@ const PersonalInfo = ({
           label="Email address"
           placeholder="e.g. john.doe@example.com"
           value={email}
-          updateForm={(value) => updateForm({ email: value }, "email")}
+          updateForm={(value: string) => dispatch(setEmail(value))}
           errorMsg={emailErr}
         />
         <FormGroup
@@ -42,9 +42,7 @@ const PersonalInfo = ({
           label="Phone number"
           placeholder="e.g. +1 234 567 890"
           value={phoneNumber}
-          updateForm={(value) =>
-            updateForm({ phoneNumber: value }, "phoneNumber")
-          }
+          updateForm={(value: string) => dispatch(setPhoneNumber(value))}
           errorMsg={phoneNumberErr}
         />
       </form>
