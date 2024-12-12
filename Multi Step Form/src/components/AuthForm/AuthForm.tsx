@@ -141,9 +141,7 @@ function AuthForm() {
             {currentStep === 0 && (
               <PersonalInfo {...formData} updateForm={updateForm} {...errors} />
             )}
-            {currentStep === 1 && (
-              <Plan {...formData} updateForm={updateForm} />
-            )}
+            {currentStep === 1 && <Plan />}
             {currentStep === 2 && (
               <AddOns {...formData} updateForm={updateForm} {...errors} />
             )}
