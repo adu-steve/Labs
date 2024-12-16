@@ -1,9 +1,9 @@
-import {
-  PlanCardType,
-  CardsType,
-} from "../../../../types.ts";
+import { PlanCardType } from "../../../../types.ts";
 
 import "./card.styles.css";
+import { useAppSelector } from "../../../../store.ts";
+import { useAppDispatch } from "../../../../store.ts";
+import { setPlan } from "../../../../features/planSlice.ts";
 
 const cardItems = [
   {
@@ -23,12 +23,14 @@ const cardItems = [
   },
 ];
 
-const Cards = ({ plan, updateForm, timeFrame }: CardsType) => {
+const Cards = () => {
+  const dispatch = useAppDispatch();
+  const { plan, timeFrame } = useAppSelector((state) => state.plan);
   const cards = cardItems.map((item: PlanCardType) => (
     <div
       key={item.title}
       className={`card ${plan?.title === item.title ? "active" : ""}`}
-      onClick={() => updateForm(item)}
+      onClick={() => dispatch(setPlan(item))}
     >
       <img src={item.icon} alt="Plan icon" />
       <div className="card__plan">

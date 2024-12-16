@@ -1,4 +1,3 @@
-
 export type FormItems = {
   name: string;
   email: string;
@@ -14,7 +13,7 @@ export type FormGroupType = {
   placeholder: string;
   value: string | undefined;
   errorMsg?: string;
-  updateForm: (value: string, field?: string) => void;
+  updateForm: (value: string) => void;
 };
 
 export type UpdateFieldType = (
