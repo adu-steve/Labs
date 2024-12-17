@@ -22,18 +22,6 @@ describe("Homepage Component", () => {
     expect(welcomeToHeading2).toBeInTheDocument();
   });
 
-  it("should render the quiz buttons", () => {
-    const setQuiz: Data = {
-      title: "Welcome to the Quiz App",
-      icon: "icon",
-      questions: [],
-    };
-    render(<HomepageComponent setQuiz={() => setQuiz} />);
-
-    const quizButton = screen.getAllByRole("button");
-    screen.debug(quizButton);
-  });
-
   it("should be able to see all the four buttons on the homepage", () => {
     const mockSetQuiz = vi.fn();
     render(<HomepageComponent setQuiz={mockSetQuiz} />);
