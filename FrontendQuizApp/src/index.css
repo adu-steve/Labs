@@ -218,6 +218,8 @@ button {
     font-size: 1.2rem;
   }
 
+  p {
+  }
   .light {
     background-image: url("/assets/images/pattern-background-mobile-light.svg");
   }
