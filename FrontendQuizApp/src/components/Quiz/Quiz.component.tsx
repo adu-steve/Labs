@@ -9,7 +9,7 @@ import errorIconSvg from "/assets/images/icon-error.svg";
 
 import "./quiz.styles.css";
 
-export interface QuizProps {
+interface QuizProps {
   questions: Questions[];
   setHasCompleted: (value: boolean) => void;
   setScore: (value: number) => void;
