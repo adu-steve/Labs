@@ -2,7 +2,7 @@ import { Data } from "../../../types.ts";
 import SelectedQuiz from "../Selected Quiz/SelectedQuiz.component.tsx";
 import MessageComponent from "../Message/Message.component.tsx";
 
-interface QuizCompletedProps {
+export interface QuizCompletedProps {
   setQuiz: (value: Data | undefined) => void;
   score: number;
   totalQuestions: number;

@@ -1,6 +1,6 @@
 import "./message.styles.css";
 
-interface MessageComponentProps {
+export interface MessageComponentProps {
   title?: string;
   subtitle?: string;
   message?: string;
