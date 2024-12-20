@@ -1,4 +1,4 @@
-interface QuestionProps {
+export interface QuestionProps {
   currentQuestion: string;
   questionNumber: number;
   totalQuestions: number;
