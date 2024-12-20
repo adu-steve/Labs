@@ -8,7 +8,9 @@ import userEvent from "@testing-library/user-event";
 describe("Header Component", () => {
   it("should render the two svg images for the toggle theme ", () => {
     render(<HeaderComponent />);
+
     const svg_img = screen.getAllByRole("img");
+
     expect(svg_img).toHaveLength(2);
     expect(svg_img[0]).toHaveAttribute(
       "src",
@@ -28,7 +30,7 @@ describe("Header Component", () => {
 
   it("should toggle the theme button", async () => {
     render(<HeaderComponent />);
-
+    screen.debug();
     const toggleButton = screen.getByRole("checkbox");
     const user = userEvent.setup();
     await user.click(toggleButton);
@@ -49,10 +51,12 @@ describe("Header Component", () => {
       "src",
       "/assets/images/icon-moon-light.svg"
     );
+    const body = document.querySelector("body");
+    expect(body).toHaveStyle("background: --dark-navy");
+
     const user = userEvent.setup();
     const toggleButton = screen.getByRole("checkbox");
     await user.click(toggleButton);
-    screen.debug();
     expect(theme_svg[0]).toHaveAttribute(
       "src",
       "/assets/images/icon-sun-dark.svg"
@@ -61,5 +65,6 @@ describe("Header Component", () => {
       "src",
       "/assets/images/icon-moon-dark.svg"
     );
+    expect(body).toHaveStyle("background: --light-gray");
   });
 });

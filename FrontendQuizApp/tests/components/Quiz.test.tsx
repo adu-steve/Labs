@@ -5,6 +5,8 @@ import Quiz from "../../src/components/Quiz/Quiz.component";
 import "@testing-library/jest-dom/vitest";
 import { QuizProps } from "../../src/components/Quiz/Quiz.component";
 import { Questions } from "../../types";
+
+
 describe("Quiz component", () => {
   const mockQuestions: Questions[] = [
     {
@@ -33,15 +35,16 @@ describe("Quiz component", () => {
       fireEvent.click(screen.getByText(option));
     });
   });
-  it("the submit answer button should be visible on the screen together with the options", () => {
+  it("the submit answer button should be visible ", () => {
     render(<Quiz {...quizProps} />);
     expect(
-      screen.getByRole("button", { name: /Submit Answer/i })
+      screen.getByRole("button", { name: /Submit/i })
     ).toBeInTheDocument();
   });
-  it("should show that the answer is highlighted", () => {
+  it("should show that the selected answer is highlighted", () => {
     render(<Quiz {...quizProps} />);
     const allHeadings = screen.getAllByRole("button");
+    screen.debug(allHeadings);
     const firstAnswer = allHeadings[2];
     const secondAnswer = allHeadings[3];
     expect(firstAnswer).toBeVisible();

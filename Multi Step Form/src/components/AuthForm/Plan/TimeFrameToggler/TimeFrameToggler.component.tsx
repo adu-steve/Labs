@@ -2,7 +2,7 @@ import "./timeframe.toggle.styles.css";
 import { useAppDispatch, useAppSelector } from "../../../../store";
 import { setTimeFrame } from "../../../../features/planSlice";
 
-const TimeFrameToogler = () => {
+const TimeFrameToggler = () => {
   const dispatch = useAppDispatch();
   const { timeFrame } = useAppSelector((state) => state.plan);
   return (
@@ -26,4 +26,4 @@ const TimeFrameToogler = () => {
   );
 };
 
-export default TimeFrameToogler;
+export default TimeFrameToggler;
