@@ -1,0 +1,120 @@
+@use "/sass/abstracts/" as *;
+
+.invoice_list_item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 31px auto auto;
+  //   grid-template-rows: 1fr 14px 1fr 1fr;
+  align-items: center;
+
+  background-color: var(--container-bg-color);
+
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  padding: 1.5rem;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  user-select: none;
+
+  transition: border-color 0.4s ease, background-color 0.4s ease;
+
+  &:hover {
+    border-color: hsl(var(--clr-primary-400));
+  }
+
+  @include min-breakpoint(48rem) {
+    grid-template-columns: 95px 1fr 1fr 1fr auto auto;
+    grid-template-rows: none;
+
+    padding-block: 1rem;
+  }
+}
+
+.id {
+  color: var(--invoice-item-highlighted-text-color);
+
+  font-weight: var(--fw-bold);
+
+  transition: color 0.4s ease;
+
+  &::before {
+    content: "#";
+
+    color: hsl(var(--clr-primary-400));
+  }
+}
+
+.payment_due {
+  grid-row: 3;
+  grid-column: 1;
+  margin-bottom: 0.5rem;
+
+  @include min-breakpoint(48rem) {
+    grid-row: initial;
+    grid-column: initial;
+    margin-bottom: 0;
+  }
+}
+
+.client_name {
+  color: var(--invoice-item-client-text-color);
+
+  grid-column: 2;
+  grid-row: 1;
+
+  justify-self: end;
+
+  transition: color 0.4s ease;
+
+  @include min-breakpoint(48rem) {
+    grid-row: initial;
+    grid-column: initial;
+    justify-self: start;
+  }
+}
+
+.total {
+  font-size: 1rem;
+  font-weight: var(--fw-bold);
+  line-height: 24px;
+
+  color: var(--invoice-item-highlighted-text-color);
+
+  grid-row: 4;
+  grid-column: 1;
+
+  transition: color 0.4s ease;
+
+  @include min-breakpoint(48rem) {
+    grid-row: initial;
+    grid-column: initial;
+    justify-self: end;
+
+    margin-right: 40px;
+  }
+}
+
+.status {
+  grid-row: 3 / span 2;
+  grid-column: 2;
+
+  justify-self: end;
+
+  @include min-breakpoint(48rem) {
+    grid-row: initial;
+    grid-column: initial;
+    margin-right: 20px;
+  }
+}
+
+.arrow_right_icon {
+  display: none;
+
+  @include min-breakpoint(48rem) {
+    display: block;
+  }
+}

@@ -1,0 +1,36 @@
+@use "/sass/abstracts/" as *;
+
+.modal {
+  position: fixed;
+  top: -280px;
+  left: 50%;
+
+  z-index: var(--z-index-modal);
+
+  padding: 2rem;
+
+  width: min(90%, 30rem);
+  height: min-content;
+
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+
+  background-color: var(--container-bg-color);
+
+  border-radius: 8px;
+
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+
+  transition: top 0.4s ease, opacity 0.2s ease;
+
+  @include min-breakpoint(48rem) {
+    padding: 3rem;
+  }
+}
+
+.modal_show {
+  top: 50%;
+
+  opacity: 1;
+}

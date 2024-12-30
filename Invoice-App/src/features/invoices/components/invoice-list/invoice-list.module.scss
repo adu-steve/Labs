@@ -1,0 +1,10 @@
+.invoice_list {
+  [data-test-id="virtuoso-item-list"] {
+    display: grid;
+    gap: 1rem;
+  }
+
+  [data-test-id="virtuoso-scroller"] {
+    scrollbar-width: thin;
+  }
+}

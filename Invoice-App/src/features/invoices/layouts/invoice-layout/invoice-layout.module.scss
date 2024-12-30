@@ -1,0 +1,12 @@
+@use "/sass/abstracts/" as *;
+
+.wrapper {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr;
+
+  @include min-breakpoint(90rem) {
+    grid-template-rows: none;
+    grid-template-columns: auto 1fr;
+  }
+}

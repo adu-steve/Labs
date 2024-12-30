@@ -1,0 +1,47 @@
+@use "/sass/abstracts/" as *;
+
+.main {
+  padding-block: clamp(1rem, -0.7858rem + 8.929vw, 3.5rem);
+
+  display: grid;
+  gap: clamp(1rem, -0.7858rem + 8.929vw, 3.5rem);
+  grid-template-rows: auto minmax(22rem, 1fr);
+}
+
+.toolbar {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto auto;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: clamp(1.25rem, 0.53445rem + 3.053vw, 2rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+
+  color: var(--heading-text-color);
+
+  transition: color 0.4s ease;
+}
+
+.circle {
+  aspect-ratio: 1;
+  height: 100%;
+
+  background-color: hsl(var(--clr-neutral-100));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 100vmax;
+}
+
+.button_text::before {
+  content: "New";
+
+  @include min-breakpoint(32rem) {
+    content: "New Invoices";
+  }
+}

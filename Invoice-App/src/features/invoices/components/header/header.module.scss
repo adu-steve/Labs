@@ -1,0 +1,98 @@
+@use "/sass/abstracts/" as *;
+
+.header {
+  height: var(--header-height);
+
+  background-color: hsl(var(--clr-secondary-800));
+
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto auto auto;
+  gap: clamp(1.5rem, 1.02281rem + 2.036vw, 2rem);
+
+  padding-right: 1.5rem;
+
+  @include min-breakpoint(90rem) {
+    grid-template-columns: none;
+    grid-template-rows: 1fr auto auto auto;
+    gap: 1.5rem;
+    align-items: normal;
+    justify-items: center;
+
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+
+    height: 100%;
+    width: 6.4375rem;
+
+    border-radius: 0 20px 20px 0;
+
+    z-index: var(--z-index-sidebar);
+  }
+}
+
+.company_logo_container {
+  height: 100%;
+  width: 4.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0 20px 20px 0;
+
+  background-color: hsl(var(--clr-primary-400));
+
+  position: relative;
+
+  isolation: isolate;
+
+  @include min-breakpoint(90rem) {
+    height: 6.4375rem;
+    width: 100%;
+  }
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 50%;
+
+    border-radius: 20px 0 20px 0;
+
+    background-color: hsl(var(--clr-primary-300));
+  }
+}
+
+.logo {
+  @include min-breakpoint(90rem) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.divider {
+  border: 0;
+
+  background-color: hsl(var(--clr-secondary-650));
+
+  width: 1px;
+  height: 100%;
+
+  @include min-breakpoint(90rem) {
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.avatar {
+  width: clamp(2rem, 1.82398rem + 0.751vw, 2.5rem);
+  height: clamp(2rem, 1.82398rem + 0.751vw, 2.5rem);
+
+  border-radius: 100vmax;
+}

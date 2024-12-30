@@ -1,0 +1,256 @@
+@use "/sass/abstracts/" as *;
+
+.wrapper {
+  width: min(90%, 45.625rem);
+  margin-inline: auto;
+  margin-bottom: 1rem;
+
+  display: grid;
+  gap: 1.5rem;
+
+  @include min-breakpoint(48rem) {
+    margin-inline: 0;
+
+    width: 100%;
+
+    padding: 3.5rem;
+
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-bg-color);
+      border-radius: 100vmax;
+
+      transition: background-color 0.4s ease;
+    }
+  }
+}
+
+.form {
+  display: grid;
+  gap: clamp(2.5rem, 2.02281rem + 2.036vw, 3rem);
+}
+
+.main_title {
+  color: var(--heading-text-color);
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+  line-height: 32px;
+
+  transform: color 0.4s ease;
+
+  span::before {
+    content: "#";
+    color: var(--form-edit-page-hashtag-color);
+
+    transition: color 0.4s ease;
+  }
+}
+
+.section_title {
+  color: hsl(var(--clr-primary-400));
+  font-weight: var(--fw-bold);
+}
+
+.bill_from_section {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  > h2 {
+    grid-column: span 2;
+  }
+
+  // Street Address Field
+  > div:nth-of-type(1) {
+    grid-column: span 2;
+  }
+
+  // Country Field
+  > div:nth-of-type(4) {
+    grid-column: span 2;
+  }
+
+  @include min-breakpoint(48rem) {
+    grid-template-columns: repeat(3, 1fr);
+
+    > h2 {
+      grid-column: span 3;
+    }
+
+    // Street Address Field
+    > div:nth-of-type(1) {
+      grid-column: span 3;
+    }
+
+    // Country Field
+    > div:nth-of-type(4) {
+      grid-column: auto;
+    }
+  }
+}
+
+.bill_to_section {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  > h2 {
+    grid-column: span 2;
+  }
+
+  // Client's Name
+  > div:nth-of-type(1) {
+    grid-column: span 2;
+  }
+
+  // Client's Email
+  > div:nth-of-type(2) {
+    grid-column: span 2;
+  }
+
+  // Street Address
+  > div:nth-of-type(3) {
+    grid-column: span 2;
+  }
+
+  // Country
+  > div:nth-of-type(6) {
+    grid-column: span 2;
+  }
+
+  @include min-breakpoint(48rem) {
+    grid-template-columns: repeat(3, 1fr);
+
+    > h2 {
+      grid-column: span 3;
+    }
+
+    // Client's Name
+    > div:nth-of-type(1) {
+      grid-column: span 3;
+    }
+
+    // Client's Email
+    > div:nth-of-type(2) {
+      grid-column: span 3;
+    }
+
+    // Street Address
+    > div:nth-of-type(3) {
+      grid-column: span 3;
+    }
+
+    // Country
+    > div:nth-of-type(6) {
+      grid-column: auto;
+    }
+  }
+}
+
+.date_section {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+
+  @include min-breakpoint(48rem) {
+    grid-template-columns: repeat(2, 1fr);
+
+    // Project Description
+    > div:nth-of-type(3) {
+      grid-column: span 2;
+    }
+  }
+}
+
+.item_list_section {
+  display: grid;
+  gap: 1.5rem;
+
+  > h2 {
+    font-size: 1.125rem;
+    font-weight: var(--fw-bold);
+    line-height: 32px;
+  }
+}
+
+.form_list {
+  display: grid;
+  gap: 3rem;
+
+  margin-bottom: 1.5rem;
+
+  @include min-breakpoint(48rem) {
+    gap: 1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+.form_actions {
+  height: 5rem;
+
+  padding-inline: 1.5rem;
+
+  display: grid;
+  gap: 0.5rem;
+  align-items: center;
+
+  box-shadow: 1px 20px 141px -5px rgba(0, 0, 0, 0.75);
+
+  background-color: var(--container-bg-color);
+
+  transition: background-color 0.4s ease;
+
+  &.form_actions_new {
+    grid-template-columns: repeat(3, 1fr);
+
+    button {
+      padding-inline: 1rem;
+    }
+
+    @include min-breakpoint(48rem) {
+      grid-template-columns: 1fr auto auto;
+      justify-content: start;
+      align-self: end;
+
+      position: sticky;
+      bottom: 0;
+
+      height: 6.875rem;
+
+      button {
+        padding-inline: 1.5rem;
+      }
+
+      button:first-child {
+        width: max-content;
+      }
+    }
+  }
+
+  &.form_actions_edit {
+    justify-content: end;
+    grid-template-columns: repeat(2, auto);
+
+    @include min-breakpoint(48rem) {
+      align-self: end;
+
+      position: sticky;
+      bottom: 0;
+
+      height: 6.875rem;
+    }
+  }
+}

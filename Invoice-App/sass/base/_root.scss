@@ -1,0 +1,190 @@
+:root {
+  --clr-primary-300: 252, 100%, 73%;
+  --clr-primary-400: 252, 94%, 67%;
+
+  --clr-secondary-100: 240, 27%, 98%;
+  --clr-secondary-150: 231, 67%, 99%;
+  --clr-secondary-175: 231, 73%, 93%;
+  --clr-secondary-200: 231, 75%, 93%;
+  --clr-secondary-500: 231, 36%, 63%;
+  --clr-secondary-600: 231, 20%, 61%;
+  --clr-secondary-625: 231, 23%, 61%;
+  --clr-secondary-650: 231, 20%, 36%;
+  --clr-secondary-700: 232, 37%, 45%;
+  --clr-secondary-750: 233, 30%, 21%;
+  --clr-secondary-800: 233, 31%, 17%;
+  --clr-secondary-850: 233, 30%, 11%;
+  --clr-secondary-900: 231, 28%, 7%;
+
+  --clr-neutral-100: 0, 0%, 100%;
+  --clr-neutral-150: 0, 0%, 94%;
+  --clr-neutral-300: 216, 100%, 94%, 0.65;
+  --clr-neutral-350: 217, 26%, 97%;
+  --clr-neutral-400: 215, 24%, 80%;
+  --clr-neutral-500: 214, 17%, 51%;
+  --clr-neutral-900: 0, 0%, 0%;
+
+  --clr-accent-red-300: 0, 100%, 80%;
+  --clr-accent-red-400: 0, 80%, 63%;
+  --clr-accent-green-400: 160, 67%, 52%;
+  --clr-accent-orange-400: 34, 100%, 50%;
+  --clr-accent-black-400: 231, 20%, 27%;
+  --clr-accent-blue-400: 206, 67%, 39%;
+
+  --fw-light: 400;
+  --fw-regular: 500;
+  --fw-bold: 700;
+
+  --ff-regular: "Spartan", sans-serif;
+
+  --focus-outline-color: hsl(var(--clr-secondary-900));
+
+  --status-draft-text-color: hsl(var(--clr-accent-black-400));
+  --status-draft-bg-color: hsl(var(--clr-accent-black-400), 0.05);
+
+  --z-index-backdrop: 50;
+  --z-index-modal: 100;
+  --z-index-drawer: 75;
+  --z-index-sidebar: 80;
+
+  --input-border-radius: 4px;
+  --input-height: 3rem;
+  --input-padding-inline: 1.25rem;
+
+  --scrollbar-bg-color: hsl(var(--clr-secondary-200));
+
+  --spinner-bg-color: hsl(var(--clr-neutral-400));
+  --spinner-color: hsl(var(--clr-neutral-500));
+
+  --page-bg-color: hsl(var(--clr-secondary-100));
+
+  --form-page-bg-color: hsl(var(--clr-neutral-100));
+  --form-edit-page-hashtag-color: hsl(var(--clr-secondary-600));
+
+  --header-height: clamp(4.5rem, 4.02281rem + 2.036vw, 5rem);
+
+  --container-bg-color: hsl(var(--clr-neutral-100));
+
+  --sidebar-bg-color: hsl(var(--clr-accent-black-400));
+
+  --heading-text-color: hsl(var(--clr-secondary-900));
+  --text-color: hsl(var(--clr-secondary-600));
+
+  --empty-list-message-text-color: hsl(var(--clr-secondary-600));
+
+  --link-text-color: hsl(var(--clr-secondary-900));
+
+  --datepicker-day-hover-bg-color: hsl(var(--clr-neutral-150));
+
+  --filter-container-bg-color: hsl(var(--clr-neutral-100));
+  --filter-container-shadow-color: hsl(var(--clr-secondary-700), 0.25);
+
+  --invoice-details-highlighted-text-color: hsl(var(--clr-secondary-900));
+  --invoice-details-text-color: hsl(var(--clr-secondary-500));
+  --invoice-details-status-text-color: hsl(var(--clr-secondary-625));
+
+  --invoice-item-highlighted-text-color: hsl(var(--clr-secondary-900));
+  --invoice-item-client-text-color: hsl(var(--clr-secondary-625));
+
+  --secondary-btn-bg-color: hsl(var(--clr-secondary-150));
+  --secondary-btn-text-color: hsl(var(--clr-secondary-500));
+  --secondary-btn-hover-bg-color: hsl(var(--clr-secondary-175));
+  --secondary-btn-hover-text-color: hsl(var(--clr-secondary-500));
+
+  --tertiary-btn-bg-color: hsl(var(--clr-accent-black-400));
+  --tertiary-btn-text-color: hsl(var(--clr-secondary-600));
+  --tertiary-btn-hover-bg-color: hsl(var(--clr-secondary-900));
+  --tertiary-btn-hover-text-color: hsl(var(--clr-secondary-600));
+
+  --select-separator-color: hsl(var(--clr-secondary-200));
+  --select-option-hover-color: hsl(var(--clr-neutral-300));
+
+  --label-text-color: hsl(var(--clr-secondary-500));
+
+  --form-field-label-color: hsl(var(--clr-secondary-500));
+
+  --label-checkbox-color: hsl(var(--clr-secondary-800));
+  --checkbox-bg-color: hsl(var(--clr-secondary-175));
+
+  --input-border-color: hsl(var(--clr-secondary-200));
+  --input-bg-color: hsl(var(--clr-neutral-100));
+  --input-text-color: hsl(var(--clr-secondary-900));
+
+  --table-highlight-content-text-color: hsl(var(--clr-secondary-900));
+  --table-content-text-color: hsl(var(--clr-secondary-500));
+  --table-price-qty-text-color: hsl(var(--clr-secondary-500));
+  --table-header-text-color: hsl(var(--clr-secondary-500));
+  --table-body-bg-color: hsl(var(--clr-secondary-150));
+  --table-footer-bg-color: hsl(var(--clr-accent-black-400));
+}
+
+[data-theme="dark"] {
+  --spinner-bg-color: hsl(var(--clr-neutral-500));
+  --spinner-color: hsl(var(--clr-neutral-350));
+
+  --scrollbar-bg-color: hsl(var(--clr-secondary-750));
+
+  --focus-outline-color: hsl(var(--clr-neutral-100));
+
+  --status-draft-text-color: hsl(var(--clr-secondary-200));
+  --status-draft-bg-color: hsl(var(--clr-secondary-200), 0.05);
+
+  --page-bg-color: hsl(var(--clr-secondary-850));
+
+  --form-page-bg-color: hsl(var(--clr-secondary-850));
+  --form-edit-page-hashtag-color: hsla(225, 14%, 53%, 1);
+
+  --container-bg-color: hsl(var(--clr-secondary-800));
+
+  --sidebar-bg-color: hsl(var(--clr-secondary-800));
+
+  --heading-text-color: hsl(var(--clr-neutral-100));
+  --text-color: hsl(var(--clr-secondary-200));
+
+  --empty-list-message-text-color: hsl(var(--clr-secondary-600));
+
+  --link-text-color: hsl(var(--clr-neutral-100));
+
+  --datepicker-day-hover-bg-color: hsl(var(--clr-accent-blue-400));
+
+  --filter-container-bg-color: hsl(var(--clr-secondary-750));
+  --filter-container-shadow-color: hsl(var(--clr-neutral-900), 0.25);
+
+  --invoice-details-highlighted-text-color: hsl(var(--clr-neutral-100));
+  --invoice-details-text-color: hsl(var(--clr-secondary-200));
+  --invoice-details-status-text-color: hsl(var(--clr-secondary-200));
+
+  --invoice-item-highlighted-text-color: hsl(var(--clr-neutral-100));
+  --invoice-item-client-text-color: hsl(var(--clr-neutral-100));
+
+  --secondary-btn-bg-color: hsl(var(--clr-secondary-750));
+  --secondary-btn-text-color: hsl(var(--clr-secondary-200));
+  --secondary-btn-hover-bg-color: hsl(var(--clr-neutral-100));
+  --secondary-btn-hover-text-color: hsl(var(--clr-secondary-200));
+
+  --tertiary-btn-bg-color: hsl(var(--clr-accent-black-400));
+  --tertiary-btn-text-color: hsl(var(--clr-secondary-200));
+  --tertiary-btn-hover-bg-color: hsl(var(--clr-secondary-800));
+  --tertiary-btn-hover-text-color: hsl(var(--clr-secondary-200));
+
+  --select-separator-color: hsl(var(--clr-secondary-200), 0.5);
+  --select-option-hover-color: hsl(var(--clr-secondary-900), 0.4);
+
+  --label-text-color: hsl(var(--clr-secondary-200));
+
+  --form-field-label-color: hsl(var(--clr-secondary-600));
+
+  --label-checkbox-color: hsl(var(--clr-neutral-100));
+  --checkbox-bg-color: hsl(var(--clr-secondary-800));
+
+  --input-border-color: hsl(var(--clr-secondary-750));
+  --input-bg-color: hsl(var(--clr-secondary-800));
+  --input-text-color: hsl(var(--clr-neutral-100));
+
+  --table-highlight-content-text-color: hsl(var(--clr-neutral-100));
+  --table-content-text-color: hsl(var(--clr-secondary-200));
+  --table-price-qty-text-color: hsl(var(--clr-secondary-600));
+  --table-header-text-color: hsl(var(--clr-secondary-200));
+  --table-body-bg-color: hsl(var(--clr-secondary-750));
+  --table-footer-bg-color: hsl(var(--clr-secondary-900));
+}

@@ -1,0 +1,48 @@
+.form_field {
+  display: grid;
+  gap: 0.625rem;
+}
+
+.label {
+  color: var(--form-field-label-color);
+}
+
+.input {
+  font-size: 0.8rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.25px;
+
+  height: var(--input-height);
+  width: 100%;
+
+  border-radius: var(--input-border-radius);
+
+  padding-inline: var(--input-padding-inline);
+
+  color: var(--input-text-color);
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--input-border-color);
+
+  transition: color 0.4s ease, background-color 0.4s ease,
+    border-color 0.4s ease;
+
+  outline: none;
+
+  &:focus {
+    border-color: hsl(var(--clr-primary-300));
+  }
+}
+
+.error {
+  border: 1px solid hsl(var(--clr-accent-red-300));
+
+  &:focus {
+    border-color: hsl(var(--clr-accent-red-400));
+  }
+}
+
+.error_message {
+  font-size: 0.625rem;
+  font-weight: var(--fw-bold);
+  color: hsl(var(--clr-accent-red-400));
+}

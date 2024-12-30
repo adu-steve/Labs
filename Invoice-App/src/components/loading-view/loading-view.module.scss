@@ -1,0 +1,28 @@
+@use "/sass/abstracts/" as *;
+
+.loading_container {
+  display: grid;
+  gap: 2rem;
+  place-content: center;
+  justify-items: center;
+
+  text-align: center;
+
+  color: var(--text-color);
+
+  transition: color 0.4s ease;
+
+  > h1 {
+    margin-left: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+}
+
+.fullscreen {
+  min-height: 100vh;
+
+  @include min-breakpoint(90rem) {
+    grid-column: span 2;
+  }
+}

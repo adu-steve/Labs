@@ -1,0 +1,22 @@
+.form_field {
+  display: grid;
+  gap: 0.625rem;
+}
+
+.label {
+  color: var(--form-field-label-color);
+}
+
+.error {
+  border: 1px solid hsl(var(--clr-accent-red-300));
+
+  &:focus {
+    border-color: hsl(var(--clr-accent-red-400));
+  }
+}
+
+.error_message {
+  font-size: 0.625rem;
+  font-weight: var(--fw-bold);
+  color: hsl(var(--clr-accent-red-400));
+}

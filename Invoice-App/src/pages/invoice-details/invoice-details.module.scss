@@ -1,0 +1,220 @@
+@use "/sass/abstracts/" as *;
+
+.main {
+  --border-radius: 8px;
+
+  padding-block: 2rem;
+  padding-bottom: 8rem;
+
+  @include min-breakpoint(48rem) {
+    padding-block: 4rem;
+  }
+}
+
+.back_link {
+  margin-bottom: 2rem;
+  justify-self: start;
+}
+
+.modal_container {
+  display: grid;
+  gap: 1rem;
+
+  > p {
+    line-height: 22px;
+  }
+}
+
+.modal_title {
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  line-height: 2rem;
+
+  color: var(--heading-text-color);
+}
+
+.modal_actions {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+.title {
+  color: var(--invoice-details-text-color);
+
+  transition: color 0.4s ease;
+}
+
+.content {
+  color: var(--invoice-details-text-color);
+
+  font-size: 0.6875rem;
+  line-height: 18px;
+
+  transition: color 0.4s ease;
+}
+
+.highlight {
+  color: var(--invoice-details-highlighted-text-color);
+  font-size: 0.9375rem;
+  font-weight: var(--fw-bold);
+
+  transition: color 0.4s ease;
+}
+
+.status_container {
+  height: 5.5rem;
+  padding-inline: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--container-bg-color);
+
+  border-radius: var(--border-radius);
+
+  margin-bottom: 1rem;
+
+  transition: background-color 0.4s ease;
+
+  @include min-breakpoint(48rem) {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 1rem;
+  }
+}
+
+.status_label {
+  color: var(--invoice-details-status-text-color);
+}
+
+.id {
+  font-weight: var(--fw-bold);
+  color: var(--invoice-details-highlighted-text-color);
+
+  &::before {
+    content: "#";
+    color: hsl(var(--clr-secondary-500));
+  }
+}
+
+.actions_container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 5.6875rem;
+
+  padding-inline: 1.5rem;
+
+  background-color: var(--container-bg-color);
+
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+
+  transition: background-color 0.4s ease;
+
+  @include min-breakpoint(48rem) {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    padding: 0;
+    background-color: transparent;
+
+    justify-self: end;
+  }
+}
+
+.invoice_container {
+  padding: 1.5rem;
+
+  display: grid;
+  gap: 2rem;
+
+  background-color: var(--container-bg-color);
+
+  border-radius: var(--border-radius);
+
+  transition: background-color 0.4s ease;
+
+  @include min-breakpoint(48rem) {
+    padding: 2rem;
+    gap: 3rem;
+  }
+}
+
+.invoice_header {
+  display: grid;
+  gap: 2rem;
+
+  @include min-breakpoint(48rem) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.id_description_container {
+  display: grid;
+  gap: 0.25rem;
+
+  @include min-breakpoint(48rem) {
+    align-content: start;
+    gap: 1rem;
+  }
+}
+
+.invoice_body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 2rem);
+  gap: 2.375rem;
+
+  @include min-breakpoint(48rem) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: none;
+  }
+}
+
+.invoice_date_container {
+  display: grid;
+  gap: 0.75rem;
+
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.payment_due_container {
+  display: grid;
+  gap: 0.75rem;
+
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.bill_to_container {
+  display: grid;
+  gap: 0.75rem;
+
+  grid-column: 2;
+  grid-row: span 2;
+}
+
+.sent_to_container {
+  display: grid;
+  gap: 0.75rem;
+
+  grid-column: span 2;
+  grid-row: 3;
+
+  @include min-breakpoint(48rem) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}

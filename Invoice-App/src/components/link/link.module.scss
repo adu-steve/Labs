@@ -1,0 +1,29 @@
+.link {
+  display: inline-block;
+
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.25px;
+
+  text-decoration: none;
+
+  color: var(--link-text-color);
+
+  background-color: transparent;
+
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+
+  appearance: none;
+
+  cursor: pointer;
+
+  transition: color 0.4s ease;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1.5rem;
+}

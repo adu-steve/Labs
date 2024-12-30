@@ -1,0 +1,22 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: var(--z-index-backdrop);
+
+  background-color: hsla(0, 0%, 0%, 0.6);
+
+  opacity: 0;
+
+  width: 0;
+  height: 0;
+
+  transition: opacity 0.4s ease;
+}
+
+.backdrop__visible {
+  opacity: 1;
+
+  width: auto;
+  height: auto;
+}

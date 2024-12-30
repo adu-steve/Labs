@@ -1,0 +1,31 @@
+@use "../abstracts/" as *;
+
+html {
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: var(--page-bg-color);
+
+  transition: background-color 0.4s ease;
+}
+
+:is(a, button, details, summary, div, label) {
+  &:focus-visible {
+    outline: 3px dotted var(--focus-outline-color);
+    outline-offset: 3px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--clr-neutral-500));
+  border-radius: 100vmax;
+}
