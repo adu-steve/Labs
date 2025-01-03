@@ -1,0 +1,61 @@
+.filter {
+  position: relative;
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 98;
+  }
+
+  button {
+    position: relative;
+    gap: 20px;
+    z-index: 99;
+
+    .rotate180 {
+      transform: rotate(180deg);
+    }
+  }
+
+  .filter__dropdown {
+    width: 180px;
+    left: -1.8rem;
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+
+      &:hover {
+        .custom__checkbox {
+          border-color: var(--primary);
+        }
+      }
+
+      input {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + .custom__checkbox {
+        background-color: var(--primary);
+        background-image: url("../../assets/images/icon-check.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        border-color: var(--primary);
+      }
+
+      .custom__checkbox {
+        border: solid 2px transparent;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        border-radius: 3px;
+        background-color: var(--bg-checkbox);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}

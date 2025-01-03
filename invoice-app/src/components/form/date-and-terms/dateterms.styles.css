@@ -1,0 +1,83 @@
+.date-term {
+  display: flex;
+  gap: 20px;
+
+  @media (width <= 540px) {
+    flex-direction: column;
+  }
+
+  & > div {
+    flex: 1;
+  }
+
+  input[type="date"] {
+    background-image: url("../../../assets/images/icon-calendar.svg");
+    background-position: 95%;
+    background-repeat: no-repeat;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .payment-terms,
+  .invoice-date {
+    & > button {
+      padding: 15px;
+      border: solid 1px var(--input-border);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      margin-top: 15px;
+      width: 100%;
+      justify-content: space-between;
+
+      img {
+        margin-left: auto;
+      }
+
+      &:hover {
+        border-color: var(--primary);
+      }
+    }
+
+    button.active {
+      border-color: var(--primary);
+    }
+  }
+
+  .invoice-date {
+    position: relative;
+  }
+
+  .payment-terms {
+    position: relative;
+
+    .rotate180 {
+      transform: rotate(180deg);
+    }
+
+    .custom-select {
+      text-transform: capitalize;
+      font-size: 0.688rem;
+      overflow: hidden;
+
+      button {
+        cursor: pointer;
+        border-bottom: solid 1px var(--bg-checkbox);
+        justify-content: flex-start;
+        border-radius: 0;
+        transition: all 0.3s ease-in-out;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover,
+        &.active {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+}

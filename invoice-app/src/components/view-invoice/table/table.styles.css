@@ -1,0 +1,61 @@
+.table {
+  width: 100%;
+  gap: 20px;
+  border-collapse: collapse;
+
+  thead {
+    color: var(--text-tertiary);
+
+    .table__title-quantity {
+      text-align: center;
+    }
+
+    .table__title-price,
+    .table__title-total {
+      text-align: right;
+    }
+  }
+
+  tbody {
+    td {
+      padding-top: 30px;
+    }
+    .table__quantity {
+      color: var(--text-tertiary);
+      text-align: center;
+    }
+
+    .table__price {
+      color: var(--text-tertiary);
+      text-align: right;
+    }
+
+    .table__total {
+      text-align: right;
+    }
+  }
+}
+
+.mobile-table {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  .table-item {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+
+    .table-item__details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .qty-price {
+        color: var(--text-tertiary);
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.date-picker {
+  gap: 30px;
+  padding: 30px;
+
+  button {
+    padding: 0;
+  }
+
+  .month-year__slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .weeks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    button {
+      width: 40px;
+    }
+
+    .week {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+
+      .day {
+        &:hover,
+        &.active {
+          color: var(--primary);
+        }
+
+        &:disabled {
+          color: var(--text-hash);
+        }
+      }
+    }
+  }
+}
