@@ -1,0 +1,132 @@
+.form-dialog {
+  /*padding-right: 0;*/
+  padding: 0;
+  animation: slideInRight 0.3s forwards;
+  justify-content: flex-start;
+  overflow-x: hidden;
+
+  img {
+    border-radius: 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 100%;
+    gap: 20px;
+
+    .go-back {
+      gap: 10px;
+      display: none;
+      width: fit-content;
+      padding-left: 0;
+
+      &:hover {
+        color: var(--text-go-back);
+      }
+    }
+
+    label {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-info {
+      padding: 40px 40px 0 143px;
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+
+      @media (width <= 768px) {
+        padding: 20px 40px 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  @media (width <= 768px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 80%;
+    min-width: 440px;
+  }
+
+  @media (width <= 540px) {
+    border-radius: 0;
+    min-width: unset;
+    width: 100%;
+
+    form {
+      .go-back {
+        display: flex;
+      }
+    }
+  }
+
+  label,
+  p {
+    &.error {
+      color: var(--bg-danger);
+    }
+  }
+
+  .form__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    background: var(--bg-form);
+    width: 100%;
+    box-shadow: 0 -10px 10px #00000024;
+
+    padding: 20px 40px 20px 143px;
+    border-radius: 20px;
+    margin-top: auto;
+    position: sticky;
+    bottom: -90px;
+    transition: all 0.3s ease;
+
+    &.visible {
+      bottom: 0;
+    }
+
+    @media (width <= 768px) {
+      padding: 20px 40px 20px;
+      border-radius: 0;
+    }
+
+    button {
+      padding: 15px;
+      min-width: 105px;
+    }
+
+    .discard__button {
+      margin-right: auto;
+      min-width: fit-content;
+    }
+  }
+}
+
+@keyframes dropdownExpand {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
