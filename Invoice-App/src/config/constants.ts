@@ -1,5 +1,0 @@
-export const VIEWPORT_WIDTH = {
-  MOBILE: 375,
-  TABLET: 768,
-  DESKTOP: 1440,
-};
