@@ -38,9 +38,7 @@ const DatePicker = ({ selectedDate, handleSelection }: DatePickerProps) => {
     // Add days from the previous month
     const prevMonthLastDay = new Date(year, month, 0).getDate();
     for (let i = firstDayOfMonth.getDay() - 1; i >= 0; i--) {
-      const day = new Date(year, month - 1, prevMonthLastDay - i)
-        .toISOString()
-        .split("T")[0];
+      const day = new Date(year, month - 1, prevMonthLastDay - i).toISOString().split("T")[0];
       days.push({ date: day, isCurrentMonth: false });
     }
 
@@ -69,15 +67,11 @@ const DatePicker = ({ selectedDate, handleSelection }: DatePickerProps) => {
   };
 
   const handlePrevMonth = () => {
-    setCurrentMonth(
-      new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1),
-    );
+    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1));
   };
 
   const handleNextMonth = () => {
-    setCurrentMonth(
-      new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1),
-    );
+    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1));
   };
 
   const year = currentMonth.getFullYear();
@@ -85,23 +79,23 @@ const DatePicker = ({ selectedDate, handleSelection }: DatePickerProps) => {
   const weeks = generateWeeks(year, month);
 
   return (
-    <Dropdown className={"date-picker"}>
-      <div className={"month-year__slider"}>
-        <Button type={"button"} onClick={handlePrevMonth}>
-          <Icon icon={arrowLeftIcon} description={"left arrow icon"} />
+    <Dropdown className="date-picker">
+      <div className="month-year__slider">
+        <Button type="button" onClick={handlePrevMonth}>
+          <Icon icon={arrowLeftIcon} description="left arrow icon" />
         </Button>
-        <Text bold>{months[month] + year}</Text>
-        <Button type={"button"} onClick={handleNextMonth}>
-          <Icon icon={arrowRightIcon} description={"right arrow icon"} />
+        <Text bold>{`${months[month]} ${year}`}</Text>
+        <Button type="button" onClick={handleNextMonth}>
+          <Icon icon={arrowRightIcon} description="right arrow icon" />
         </Button>
       </div>
 
-      <div className={"weeks"}>
+      <div className="weeks">
         {weeks.map((week) => (
-          <div key={week.weekNumber} className={`week`}>
+          <div key={week.weekNumber} className="week">
             {week.days.map((day, i) => (
               <Button
-                type={"button"}
+                type="button"
                 key={i}
                 className={`day ${day.date === selectedDate ? "active" : ""}`}
                 disabled={!day.isCurrentMonth}

@@ -14,6 +14,7 @@ describe("format date function", () => {
     expect(formattedDate2).toBe("31 Jan 2022");
   });
 
+  
   test("should handle dates from different months", () => {
     const formattedDate1 = formatDate("2022-02-29");
     const formattedDate2 = formatDate("2022-04-30");

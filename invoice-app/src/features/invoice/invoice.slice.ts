@@ -29,8 +29,8 @@ export const deleteInvoice = createAsyncThunk(
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulated delay
       return id;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   },
 );
@@ -41,8 +41,8 @@ export const updateInvoiceStatus = createAsyncThunk(
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulated delay
       return id;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   },
 );
@@ -53,8 +53,8 @@ export const addInvoice = createAsyncThunk(
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       return invoice;
-    } catch (err: any) {
-      return rejectWithValue(err.message);
+    } catch (err: unknown) {
+      return rejectWithValue((err as Error).message);
     }
   },
 );
