@@ -1,5 +1,4 @@
 import { useFormContext } from "react-hook-form";
-
 import Icon from "../../ui/icon/Icon.tsx";
 import arrowDownIcon from "../../../assets/images/icon-arrow-down.svg";
 import Button from "../../ui/button/button.tsx";
