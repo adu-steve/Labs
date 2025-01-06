@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { fetchInvoices } from "./features/invoice/invoice.slice.ts";
 import { useAppDispatch } from "./hooks/useRedux.ts";
 import { toggleMobile } from "./features/mobile/mobile.slice.tsx";
-import { Toaster } from "sonner";
+
 
 function App() {
   const dispatch = useAppDispatch();
@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className={"app"}>
-      <Toaster position={"top-right"} />
+      
       <Sidebar />
       <div className={"content"}>
         <Routes>
