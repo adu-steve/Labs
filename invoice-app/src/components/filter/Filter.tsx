@@ -14,8 +14,8 @@ const Filter = () => {
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
   useEffect(() => {
-    const disablePopup = (e: any) => {
-      if (!e.target.closest(".filter")) {
+    const disablePopup = (e: MouseEvent) => {
+      if (e.target && !(e.target as Element).closest(".filter")) {
         setShowDropdown(false);
       }
     };

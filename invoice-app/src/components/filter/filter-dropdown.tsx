@@ -10,13 +10,13 @@ interface FilterDropdownProps {
   options: string[];
 }
 
-const FilterDropdown = ({ options }: FilterDropdownProps) => {
+const FilterDropdown = (props: FilterDropdownProps) => {
   const statusFilter = useAppSelector(selectStatusFilter);
   const dispatch = useAppDispatch();
 
   return (
     <Dropdown className={"filter__dropdown"}>
-      {options.map((option) => (
+      {props.options.map((option) => (
         <Text
           type={"label"}
           bold={true}
