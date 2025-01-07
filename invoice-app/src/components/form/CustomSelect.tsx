@@ -24,18 +24,15 @@ interface CustomSelectProps {
   handleSelectOption: (value: number) => void;
   selectedOption: number;
 }
-const CustomSelect = ({
-  selectedOption,
-  handleSelectOption,
-}: CustomSelectProps) => {
+const CustomSelect = (props: CustomSelectProps) => {
   return (
     <Dropdown className={"custom-select"}>
       {Options.map((option) => (
         <Button
           type={"button"}
           key={option.description}
-          onClick={() => handleSelectOption(option.value)}
-          className={`${option.value === selectedOption ? "active" : ""}`}
+          onClick={() => props.handleSelectOption(option.value)}
+          className={`${option.value ===props.selectedOption ? "active" : ""}`}
         >
           {option.description}
         </Button>

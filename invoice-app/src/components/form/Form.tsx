@@ -31,11 +31,11 @@ interface FormProps {
   toggleForm: () => void;
 }
 
-const Form = ({ toggleForm, initialValues, type }: FormProps) => {
+const Form = (props: FormProps) => {
   const dispatch = useAppDispatch();
   const loading = useAppSelector(selectLoading);
   const form = useForm<FormValues>({
-    defaultValues: initialValues ?? {
+    defaultValues: props.initialValues ?? {
       id: generateRandomId(),
       clientName: "",
       clientEmail: "",
@@ -103,7 +103,7 @@ const Form = ({ toggleForm, initialValues, type }: FormProps) => {
     data.total = calculateTotal(data.items);
     data.paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
 
-    dispatch(addInvoice(data)).then(() => toggleForm());
+    dispatch(addInvoice(data)).then(() => props.toggleForm());
   };
 
   const onSaveDraft = () => {
@@ -116,12 +116,12 @@ const Form = ({ toggleForm, initialValues, type }: FormProps) => {
         ? calculatePaymentDue(data.createdAt, data.paymentTerms)
         : "";
 
-    dispatch(addInvoice(data)).then(() => toggleForm());
+    dispatch(addInvoice(data)).then(() =>props.toggleForm());
   };
 
   const onDiscard = () => {
     reset();
-    toggleForm();
+    props.toggleForm();
   };
 
   const { description } = (errors as Errors) ?? {};
@@ -137,7 +137,7 @@ const Form = ({ toggleForm, initialValues, type }: FormProps) => {
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className="form-info">
-              <Button className="go-back" type={"button"} onClick={toggleForm}>
+              <Button className="go-back" type={"button"} onClick={props.toggleForm}>
                 <Icon
                   icon={arrowLeftIcon}
                   description={"arrow left"}
@@ -145,12 +145,12 @@ const Form = ({ toggleForm, initialValues, type }: FormProps) => {
                 />
                 <Text bold={true}>Go back</Text>
               </Button>
-              {type === "newInvoice" ? (
+              {props.type === "newInvoice" ? (
                 <Headline variant={"h2"}>New Invoice</Headline>
               ) : (
                 <Headline variant={"h2"}>
                   Edit <span>#</span>
-                  {initialValues?.id}
+                  {props.initialValues?.id}
                 </Headline>
               )}
 
@@ -196,7 +196,7 @@ const Form = ({ toggleForm, initialValues, type }: FormProps) => {
             </div>
 
             <div className={`form__buttons`}>
-              {type === "newInvoice" ? (
+              {props.type === "newInvoice" ? (
                 <>
                   <Button
                     type={"button"}

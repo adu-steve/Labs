@@ -4,8 +4,8 @@ interface InvoiceTitleProps {
   title: string;
 }
 
-const InvoiceTitle = ({ title }: InvoiceTitleProps) => {
-  return <Text className={"invoice-title"}>{title}</Text>;
+const InvoiceTitle = (props: InvoiceTitleProps) => {
+  return <Text className={"invoice-title"}>{props.title}</Text>;
 };
 
 export default InvoiceTitle;

@@ -2,7 +2,6 @@ import Button from "../button/button.tsx";
 import Icon from "../icon/Icon.tsx";
 import { HTMLAttributes, useState } from "react";
 import styles from "./avatar.module.css";
-import Text from "../typography/text/Text.tsx";
 import Headline from "../typography/headline/Headline.tsx";
 
 interface AvatarProps extends HTMLAttributes<HTMLButtonElement> {
@@ -14,6 +13,7 @@ interface AvatarProps extends HTMLAttributes<HTMLButtonElement> {
     | "rounded-lg"
     | "rounded-full";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  
 }
 
 const Avatar = ({
@@ -34,9 +34,8 @@ const Avatar = ({
         <>
           <div className={styles.overlay} onClick={handleToggleProfile} />
           <div className={styles.profile}>
-            <Headline variant={"h3"}>Mahamudu Halic</Headline>
-            <Text>halic.mahamudu@amalitech.com</Text>
-            <Button variant={"danger"} radius={"rounded-md"}>
+            <Headline variant={"h3"} >Profile</Headline>
+            <Button variant={"primary"} radius={"rounded-md"}>
               logout
             </Button>
           </div>

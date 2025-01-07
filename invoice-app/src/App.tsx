@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className={"app"}>
-      <Toaster position={"top-right"} />
+      <Toaster theme="system" richColors position={"top-right"} />
       <Sidebar />
       <div className={"content"}>
         <Routes>
@@ -39,9 +39,9 @@ function App() {
             path="*"
             element={
               <NotFound>
-                <Headline variant={"h3"}>Page not found 🙁</Headline>
+                <Headline variant={"h3"}>Page cannot be found</Headline>
                 <Text>
-                  Go to dashboard by clicking the <br />
+                  Click the <br />
                   <strong>Home</strong> button👇
                 </Text>
                 <Link to={"/"}>Home</Link>
