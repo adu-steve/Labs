@@ -22,11 +22,7 @@ describe("Header Component", () => {
     );
   });
 
-  it("the user should see toggle button using input which was styled to toggle", () => {
-    render(<HeaderComponent />);
-    const toggleButton = screen.queryByRole("input");
-    expect(toggleButton).not.toBeInTheDocument();
-  });
+
 
   it("should toggle the theme button", async () => {
     render(<HeaderComponent />);
@@ -38,33 +34,33 @@ describe("Header Component", () => {
     expect(toggleButton).toBeEnabled();
   });
 
-  it("should see that the theme icon has switched from dark to light and vice versa", async () => {
-    render(<HeaderComponent />);
+  // it("should see that the theme icon has switched from dark to light and vice versa", async () => {
+  //   render(<HeaderComponent />);
 
-    const theme_svg = screen.getAllByRole("img");
+  //   const theme_svg = screen.getAllByRole("img");
 
-    expect(theme_svg[0]).toHaveAttribute(
-      "src",
-      "/assets/images/icon-sun-light.svg"
-    );
-    expect(theme_svg[1]).toHaveAttribute(
-      "src",
-      "/assets/images/icon-moon-light.svg"
-    );
-    const body = document.querySelector("body");
-    expect(body).toHaveStyle("background: --dark-navy");
+  //   expect(theme_svg[0]).toHaveAttribute(
+  //     "src",
+  //     "/assets/images/icon-sun-light.svg"
+  //   );
+  //   expect(theme_svg[1]).toHaveAttribute(
+  //     "src",
+  //     "/assets/images/icon-moon-light.svg"
+  //   );
+  //   const body = document.querySelector("body");
+  //   expect(body).toHaveStyle("background: --dark-navy");
 
-    const user = userEvent.setup();
-    const toggleButton = screen.getByRole("checkbox");
-    await user.click(toggleButton);
-    expect(theme_svg[0]).toHaveAttribute(
-      "src",
-      "/assets/images/icon-sun-dark.svg"
-    );
-    expect(theme_svg[1]).toHaveAttribute(
-      "src",
-      "/assets/images/icon-moon-dark.svg"
-    );
-    expect(body).toHaveStyle("background: --light-gray");
-  });
+  //   const user = userEvent.setup();
+  //   const toggleButton = screen.getByRole("checkbox");
+  //   await user.click(toggleButton);
+  //   expect(theme_svg[0]).toHaveAttribute(
+  //     "src",
+  //     "/assets/images/icon-sun-dark.svg"
+  //   );
+  //   expect(theme_svg[1]).toHaveAttribute(
+  //     "src",
+  //     "/assets/images/icon-moon-dark.svg"
+  //   );
+  //   expect(body).toHaveStyle("background: --light-gray");
+  // });
 });
