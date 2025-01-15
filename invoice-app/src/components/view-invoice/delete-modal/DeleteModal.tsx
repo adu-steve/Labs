@@ -28,7 +28,7 @@ const DeleteModal = ({ onClose, id }: DeleteModalProps) => {
       onClose();
       navigate("/");
     }
-  }, [loading]);
+  }, [loading, navigate, onClose]);
 
   return (
     <DialogContainer center={true}>

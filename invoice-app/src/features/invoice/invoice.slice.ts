@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InitialState, Invoice } from "../../types/invoice.types.ts";
-import data from "../../data.json";
-import { RootState } from "../../store.ts";
+import { InitialState, Invoice } from "../../types/invoice.types";
+import { RootState } from "../../store";
 import { toast } from "sonner";
+import fetchConfig from "../../fetchConfig";
 
 const initialState: InitialState = {
-  invoices: data as Invoice[],
+  invoices: [],
   currentInvoice: { loading: "idle", error: null, invoice: undefined },
   statusFilter: [],
   loading: "idle",
@@ -14,49 +14,65 @@ const initialState: InitialState = {
 
 export const fetchInvoices = createAsyncThunk<Invoice[]>(
   "invoices/fetch",
-  () => {
-    return data as Invoice[];
-  },
+  async () => {
+    const data = await fetchConfig.get("/invoices");
+    console.log(data);
+    
+    return data;
+  }
 );
 
-export const getInvoiceById = createAsyncThunk("invoice/get", (id: string) => {
-  return id;
-});
+export const getInvoiceById = createAsyncThunk(
+  "invoice/get",
+  async (id: string) => {
+    const data = await fetchConfig.get(`/invoices/${id}`);
+    return data;
+  }
+);
 
 export const deleteInvoice = createAsyncThunk(
   "invoices/delete",
   async (id: string, { rejectWithValue }) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulated delay
+      await fetchConfig.delete(`/invoices/${id}`);
       return id;
     } catch (error: unknown) {
-      return rejectWithValue((error as Error).message);
+      if (error instanceof Error) {
+        return rejectWithValue(error.message);
+      }
+      return rejectWithValue("An unknown error occurred");
     }
-  },
+  }
 );
 
 export const updateInvoiceStatus = createAsyncThunk(
   "invoices/updateInvoiceStatus",
   async (id: string, { rejectWithValue }) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulated delay
+      await fetchConfig.put(`/invoices/${id}`, { status: "paid" });
       return id;
     } catch (error: unknown) {
-      return rejectWithValue((error as Error).message);
+      if (error instanceof Error) {
+        return rejectWithValue(error.message);
+      }
+      return rejectWithValue("An unknown error occurred");
     }
-  },
+  }
 );
 
 export const addInvoice = createAsyncThunk(
   "invoices/addInvoice",
   async (invoice: Invoice, { rejectWithValue }) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      return invoice;
-    } catch (err: unknown) {
-      return rejectWithValue((err as Error).message);
+      const data = await fetchConfig.post("/invoices", invoice);
+      return data;
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        return rejectWithValue(error.message);
+      }
+      return rejectWithValue("An unknown error occurred");
     }
-  },
+  }
 );
 
 const invoiceSlice = createSlice({
@@ -71,7 +87,7 @@ const invoiceSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      //fetchInvoices
+      // fetchInvoices
       .addCase(fetchInvoices.rejected, (state, action) => {
         state.error = action.error.message ?? "Failed to fetch invoices";
       })
@@ -79,7 +95,7 @@ const invoiceSlice = createSlice({
         state.invoices = action.payload;
       })
 
-      //getInvoiceById
+      // getInvoiceById
       .addCase(getInvoiceById.rejected, (state, action) => {
         state.currentInvoice = {
           invoice: undefined,
@@ -91,13 +107,11 @@ const invoiceSlice = createSlice({
         state.currentInvoice = {
           loading: "idle",
           error: null,
-          invoice: state.invoices.find(
-            (invoice) => invoice.id === action.payload,
-          ),
+          invoice: action.payload,
         };
       })
 
-      //deleteInvoice
+      // deleteInvoice
       .addCase(deleteInvoice.pending, (state) => {
         state.currentInvoice.loading = "loading";
         state.currentInvoice.error = null;
@@ -106,22 +120,22 @@ const invoiceSlice = createSlice({
         deleteInvoice.fulfilled,
         (state, action: PayloadAction<string>) => {
           state.invoices = state.invoices.filter(
-            (invoice) => invoice.id !== action.payload,
+            (invoice) => invoice.id !== action.payload
           );
           state.currentInvoice.loading = "success";
-          toast.success("invoice deleted successfully");
-        },
+          toast.success("Invoice deleted successfully");
+        }
       )
       .addCase(deleteInvoice.rejected, (state, action) => {
         state.loading = "idle";
         state.error = action.payload as string;
         toast.error(
           (action.payload as string) ??
-            "an error occurred while deleting invoice",
+            "An error occurred while deleting the invoice"
         );
       })
 
-      //updateInvoiceStatus
+      // updateInvoiceStatus
       .addCase(updateInvoiceStatus.pending, (state) => {
         state.currentInvoice.loading = "loading";
         state.currentInvoice.error = null;
@@ -130,25 +144,16 @@ const invoiceSlice = createSlice({
         updateInvoiceStatus.fulfilled,
         (state, action: PayloadAction<string>) => {
           const index = state.invoices.findIndex(
-            (invoice) => invoice.id === action.payload,
+            (invoice) => invoice.id === action.payload
           );
 
-          if (
-            index >= 0 &&
-            state.currentInvoice.invoice &&
-            state.invoices[index].id === state.currentInvoice.invoice.id &&
-            state.invoices[index].status === "pending"
-          ) {
+          if (index >= 0) {
             state.invoices[index].status = "paid";
-            state.currentInvoice.invoice.status = "paid";
+            state.currentInvoice.invoice = state.invoices[index];
             state.currentInvoice.loading = "success";
-            state.currentInvoice.error = null;
-            toast.success("status updated successfully");
+            toast.success("Status updated successfully");
           }
-          state.currentInvoice.loading = "idle";
-          state.currentInvoice.error = "something went wrong";
-          toast.error("something went wrong");
-        },
+        }
       )
       .addCase(updateInvoiceStatus.rejected, (state, action) => {
         state.loading = "idle";
@@ -156,29 +161,17 @@ const invoiceSlice = createSlice({
         toast.error(action.payload as string);
       })
 
-      //addInvoice
+      // addInvoice
       .addCase(addInvoice.pending, (state) => {
         state.loading = "loading";
         state.error = null;
-        toast.loading("adding invoice...");
+        toast.loading("Adding invoice...");
       })
       .addCase(addInvoice.fulfilled, (state, action) => {
-        const { payload } = action;
         toast.dismiss();
-        const payloadExists = state.invoices.find(
-          (invoice) => invoice.id === payload.id,
-        );
 
-        if (!payloadExists) {
-          state.invoices = [action.payload, ...state.invoices];
-          toast.success("invoice added successfully");
-        } else {
-          const index = state.invoices.findIndex(
-            (invoice) => invoice.id === payload.id,
-          );
-          state.invoices[index] = { ...state.invoices[index], ...payload };
-          toast.success("invoice updated successfully");
-        }
+        state.invoices = [action.payload, ...state.invoices];
+        toast.success("Invoice added successfully");
 
         state.loading = "success";
         state.error = null;

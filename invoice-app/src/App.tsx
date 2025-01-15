@@ -1,23 +1,30 @@
+// src/App.tsx
 import "./App.css";
-import Sidebar from "./components/sidebar/Sidebar.tsx";
-import Invoices from "./components/invoices/Invoices.tsx";
-import { Link, Route, Routes } from "react-router-dom";
-import NotFound from "./components/not-found/NotFound.tsx";
-import Headline from "./components/ui/typography/headline/Headline.tsx";
-import Text from "./components/ui/typography/text/Text.tsx";
-import ViewInvoice from "./components/view-invoice/ViewInvoice.tsx";
+import Sidebar from "./components/sidebar/Sidebar";
+import Invoices from "./components/invoices/Invoices";
+import { Link, Route, Routes, Navigate } from "react-router-dom";
+import NotFound from "./components/not-found/NotFound";
+import Headline from "./components/ui/typography/headline/Headline";
+import Text from "./components/ui/typography/text/Text";
+import ViewInvoice from "./components/view-invoice/ViewInvoice";
 import { useEffect } from "react";
-import { fetchInvoices } from "./features/invoice/invoice.slice.ts";
-import { useAppDispatch } from "./hooks/useRedux.ts";
-import { toggleMobile } from "./features/mobile/mobile.slice.tsx";
+import { fetchInvoices } from "./features/invoice/invoice.slice";
+import { useAppDispatch, useAppSelector } from "./hooks/useRedux";
+import { toggleMobile } from "./features/mobile/mobile.slice";
 import { Toaster } from "sonner";
+import LoginPage from "./components/login/LoginPage";
+import UnauthorizedPage from "./components/unauthorized/UnauthorizedPage";
+import { logout, selectAuth } from "./features/auth/auth.slice";
 
 function App() {
   const dispatch = useAppDispatch();
+  const { token } = useAppSelector(selectAuth);
 
   useEffect(() => {
-    dispatch(fetchInvoices());
-  }, [dispatch]);
+    if (token) {
+      dispatch(fetchInvoices());
+    }
+  }, [dispatch, token]);
 
   useEffect(() => {
     window.addEventListener("resize", () => dispatch(toggleMobile()));
@@ -27,14 +34,26 @@ function App() {
     };
   }, [dispatch]);
 
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <div className={"app"}>
       <Toaster theme="system" richColors position={"top-right"} />
-      <Sidebar />
+      {token && <Sidebar />}
       <div className={"content"}>
         <Routes>
-          <Route path="/" element={<Invoices />} />
-          <Route path="/:id" element={<ViewInvoice />} />
+          <Route
+            path="/"
+            element={token ? <Invoices /> : <Navigate to="/login" />}
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/unauthorized" element={<UnauthorizedPage />} />
+          <Route
+            path="/:id"
+            element={token ? <ViewInvoice /> : <Navigate to="/login" />}
+          />
           <Route
             path="*"
             element={
@@ -50,6 +69,18 @@ function App() {
           />
         </Routes>
       </div>
+      {token && (
+        <div className="avatar" onClick={handleLogout}>
+          <img
+            src="path-to-avatar-image"
+            alt="Profile"
+            style={{ cursor: "pointer" }}
+          />
+          <div>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

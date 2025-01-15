@@ -1,18 +1,19 @@
-import Wrapper from "../ui/wrapper/Wrapper.tsx";
+// src/components/invoices/Invoices.tsx
+import Wrapper from "../ui/wrapper/Wrapper";
 import "./invoices.styles.css";
-import Header from "../header/Header.tsx";
-import InvoiceCard from "../ui/card/invoiceCard/Invoice.Card.tsx";
-import { useAppSelector } from "../../hooks/useRedux.ts";
+import Header from "../header/Header";
+import InvoiceCard from "../ui/card/invoiceCard/Invoice.Card";
+import { useAppSelector } from "../../hooks/useRedux";
 import {
   selectInvoices,
   selectStatusFilter,
-} from "../../features/invoice/invoice.slice.ts";
-import NotFound from "../not-found/NotFound.tsx";
-import Headline from "../ui/typography/headline/Headline.tsx";
-import Text from "../ui/typography/text/Text.tsx";
-import Form from "../form/Form.tsx";
+} from "../../features/invoice/invoice.slice";
+import NotFound from "../not-found/NotFound";
+import Headline from "../ui/typography/headline/Headline";
+import Text from "../ui/typography/text/Text";
+import Form from "../form/Form";
 import { useState } from "react";
-import { Invoice } from "../../types/invoice.types.ts";
+import { Invoice } from "../../types/invoice.types";
 
 const Invoices = () => {
   const invoices = useAppSelector(selectInvoices);
@@ -26,7 +27,7 @@ const Invoices = () => {
 
   const filteredInvoices = statusFilter.length
     ? invoices.filter((invoice: Invoice) =>
-        statusFilter.includes(invoice.status),
+        statusFilter.includes(invoice.status)
       )
     : [...invoices];
 
