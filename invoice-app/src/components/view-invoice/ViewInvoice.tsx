@@ -1,28 +1,28 @@
+// src/components/view-invoice/ViewInvoice.tsx
 import { Link, useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../hooks/useRedux.ts";
+import { useAppDispatch, useAppSelector } from "../../hooks/useRedux";
 import {
   getInvoiceById,
   selectInvoice,
   selectInvoices,
-} from "../../features/invoice/invoice.slice.ts";
+} from "../../features/invoice/invoice.slice";
 import { useEffect, useState } from "react";
-import Headline from "../ui/typography/headline/Headline.tsx";
-import Text from "../ui/typography/text/Text.tsx";
-import NotFound from "../not-found/NotFound.tsx";
-import Wrapper from "../ui/wrapper/Wrapper.tsx";
+import Headline from "../ui/typography/headline/Headline";
+import Text from "../ui/typography/text/Text";
+import NotFound from "../not-found/NotFound";
+import Wrapper from "../ui/wrapper/Wrapper";
 import arrowLeftIcon from "../../assets/images/icon-arrow-left.svg";
-import Icon from "../ui/icon/Icon.tsx";
-import CardWrapper from "../ui/card/CardWrapper.tsx";
-import formatDate from "../../utils/formatDate/formatDate.ts";
-
+import Icon from "../ui/icon/Icon";
+import CardWrapper from "../ui/card/CardWrapper";
+import formatDate from "../../utils/formatDate/formatDate";
 import "./viewinvoice.styles.css";
-import Table from "./table/Table.tsx";
-import InvoiceNotice from "./invoice-notice/InvoiceNotice.tsx";
-import Address from "./address/Address.tsx";
-import InvoiceTitle from "./InvoiceTitle.tsx";
-import InvoiceNoticeButtons from "./invoice-notice/InvoiceNoticeButtons.tsx";
-import { mobileSelector } from "../../features/mobile/mobile.slice.tsx";
-import Form from "../form/Form.tsx";
+import Table from "./table/Table";
+import InvoiceNotice from "./invoice-notice/InvoiceNotice";
+import Address from "./address/Address";
+import InvoiceTitle from "./InvoiceTitle";
+import InvoiceNoticeButtons from "./invoice-notice/InvoiceNoticeButtons";
+import { mobileSelector } from "../../features/mobile/mobile.slice";
+import Form from "../form/Form";
 
 const ViewInvoice = () => {
   const { id } = useParams();

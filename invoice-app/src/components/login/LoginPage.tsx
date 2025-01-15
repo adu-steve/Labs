@@ -12,12 +12,15 @@ const LoginPage: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    dispatch(login({ username: email, password }));
   };
 
   if (token) {
     return <Navigate to="/" />;
+    
+    
   }
+
 
   return (
     <div>

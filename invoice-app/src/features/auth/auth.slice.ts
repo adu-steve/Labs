@@ -1,9 +1,10 @@
 // src/features/auth/auth.slice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import {  post } from "../../components/fetchConfig";
+import fetchConfig from "../../fetchConfig";
 import { RootState } from "../../store";
 import { toast } from "sonner";
 
+// Define the initial state of the auth slice
 interface AuthState {
   token: string | null;
   loading: "idle" | "loading" | "succeeded" | "failed";
@@ -16,40 +17,47 @@ const initialState: AuthState = {
   error: null,
 };
 
+// Create an async thunk for logging in
 export const login = createAsyncThunk(
   "auth/login",
   async (
-    credentials: { email: string; password: string },
+    credentials: { username: string; password: string },
     { rejectWithValue }
   ) => {
     try {
-      const response = await post("/login", credentials);
+      const response = await fetchConfig.post("/login", credentials);
+    //   const data = await response.json();
+      
+      
       if (response.token) {
+        console.log(response.token);
+        
         localStorage.setItem("token", response.token);
         return response.token;
+        
+        
       } else {
         return rejectWithValue("Invalid credentials");
       }
     } catch (error: unknown) {
-      if (error instanceof Error) {
-        return rejectWithValue(error.message);
-      } else {
-        return rejectWithValue("An unknown error occurred");
-      }
+      return rejectWithValue((error as Error).message);
     }
   }
 );
 
+// Create an async thunk for logging out
 export const logout = createAsyncThunk("auth/logout", async () => {
   localStorage.removeItem("token");
 });
 
+// Create the auth slice
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // Handle login
       .addCase(login.pending, (state) => {
         state.loading = "loading";
         state.error = null;
@@ -64,6 +72,8 @@ const authSlice = createSlice({
         state.error = action.payload as string;
         toast.error(action.payload as string);
       })
+
+      // Handle logout
       .addCase(logout.fulfilled, (state) => {
         state.token = null;
         state.loading = "idle";
@@ -73,6 +83,8 @@ const authSlice = createSlice({
   },
 });
 
+// Export the auth selector
 export const selectAuth = (state: RootState) => state.auth;
 
+// Export the auth reducer
 export default authSlice.reducer;
