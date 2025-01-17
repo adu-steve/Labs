@@ -13,7 +13,7 @@ describe("Quiz Completed component", () => {
     title: "Test",
     icon: "Test",
   };
-  it("should display quiz is completed and what you scored text", () => {
+  it("should display 'quiz is completed' and what you scored", () => {
     render(<QuizCompleted {...quizCompletedProps} />);
 
     expect(screen.getByText("Quiz Completed"));
