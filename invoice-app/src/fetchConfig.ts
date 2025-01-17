@@ -41,7 +41,9 @@ const fetchConfig = {
         Authorization: `Bearer ${getToken()}`,
       },
     });
-    return response.json();
+    console.log(response);
+    
+    return response;
   },
 };
 
