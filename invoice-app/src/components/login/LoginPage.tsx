@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useRedux";
 import { login, selectAuth } from "../../features/auth/auth.slice";
 import { Navigate } from "react-router-dom";
+import "./LoginPage.css";
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -17,35 +18,38 @@ const LoginPage: React.FC = () => {
 
   if (token) {
     return <Navigate to="/" />;
-    
-    
   }
 
-
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleLogin}>
+        <h1 className="login-title">Login</h1>
+        <div className="input-group">
+          <label className="input-label">Email:</label>
           <input
             type="email"
+            className="input-field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="input-group">
+          <label className="input-label">Password:</label>
           <input
             type="password"
+            className="input-field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" disabled={loading === "loading"}>
-          Login
+        <button
+          type="submit"
+          className="submit-button"
+          disabled={loading === "loading"}
+        >
+          {loading === "loading" ? "Logging in..." : "Login"}
         </button>
-        {error && <p>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
       </form>
     </div>
   );
