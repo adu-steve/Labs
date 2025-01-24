@@ -16,7 +16,7 @@ export const fetchInvoices = createAsyncThunk<Invoice[]>(
   "invoices/fetch",
   async () => {
     const data = await fetchConfig.get("/invoices");
-    console.log(data);
+   
     
     return data;
   }
