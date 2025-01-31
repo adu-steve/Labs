@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import Headline from "../ui/typography/headline/Headline";
 import Text from "../ui/typography/text/Text";
-import NotFound from "../not-found/NotFound";
+// import NotFound from "../not-found/NotFound";
 import Wrapper from "../ui/wrapper/Wrapper";
 import arrowLeftIcon from "../../assets/images/icon-arrow-left.svg";
 import Icon from "../ui/icon/Icon";
@@ -23,6 +23,7 @@ import InvoiceTitle from "./InvoiceTitle";
 import InvoiceNoticeButtons from "./invoice-notice/InvoiceNoticeButtons";
 import { mobileSelector } from "../../features/mobile/mobile.slice";
 import Form from "../form/Form";
+import Loader from "../Loading/Loading";
 
 const ViewInvoice = () => {
   const { id } = useParams();
@@ -151,16 +152,7 @@ const ViewInvoice = () => {
             </CardWrapper>
           </>
         ) : (
-          <NotFound>
-            <Headline variant={"h3"}>Invalid ID 🙁</Headline>
-            <Text>
-              Go to dashboard by clicking the{" "}
-              <Text bold={true} type={"span"}>
-                Go back
-              </Text>{" "}
-              button to go back
-            </Text>
-          </NotFound>
+         <Loader />
         )}
       </div>
     </>
