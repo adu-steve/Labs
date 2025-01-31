@@ -1,3 +1,5 @@
+// src/components/view-invoice/delete-modal/DeleteModal.tsx
+import { useEffect } from "react";
 import Text from "../../ui/typography/text/Text.tsx";
 import Button from "../../ui/button/button.tsx";
 import { useAppDispatch, useAppSelector } from "../../../hooks/useRedux.ts";
@@ -7,7 +9,6 @@ import {
 } from "../../../features/invoice/invoice.slice.ts";
 import Headline from "../../ui/typography/headline/Headline.tsx";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { Dialog, DialogContainer } from "../../ui/dialog/Dialog.tsx";
 
 import "./deletemodal.styles.css";
@@ -28,7 +29,7 @@ const DeleteModal = ({ onClose, id }: DeleteModalProps) => {
       onClose();
       navigate("/");
     }
-  }, [loading, navigate, onClose]);
+  }, [loading, onClose, navigate]);
 
   return (
     <DialogContainer center={true}>

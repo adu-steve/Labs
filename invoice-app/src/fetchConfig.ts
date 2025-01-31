@@ -32,6 +32,8 @@ const fetchConfig = {
       },
       body: JSON.stringify(data),
     });
+    
+    
     return response.json();
   },
   delete: async (endpoint: string) => {
@@ -41,7 +43,9 @@ const fetchConfig = {
         Authorization: `Bearer ${getToken()}`,
       },
     });
-    return response.json();
+  
+    
+    return response;
   },
 };
 

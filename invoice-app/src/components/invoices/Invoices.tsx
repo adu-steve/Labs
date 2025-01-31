@@ -30,7 +30,7 @@ const Invoices = () => {
         statusFilter.includes(invoice.status)
       )
     : [...invoices];
-
+      
   return (
     <>
       {showForm && <Form type={"newInvoice"} toggleForm={toggleForm} />}

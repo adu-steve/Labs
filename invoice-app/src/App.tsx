@@ -14,7 +14,7 @@ import { toggleMobile } from "./features/mobile/mobile.slice";
 import { Toaster } from "sonner";
 import LoginPage from "./components/login/LoginPage";
 import UnauthorizedPage from "./components/unauthorized/UnauthorizedPage";
-import { logout, selectAuth } from "./features/auth/auth.slice";
+import { selectAuth } from "./features/auth/auth.slice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -34,9 +34,6 @@ function App() {
     };
   }, [dispatch]);
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
 
   return (
     <div className={"app"}>
@@ -69,18 +66,7 @@ function App() {
           />
         </Routes>
       </div>
-      {token && (
-        <div className="avatar" onClick={handleLogout}>
-          <img
-            src="path-to-avatar-image"
-            alt="Profile"
-            style={{ cursor: "pointer" }}
-          />
-          <div>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-        </div>
-      )}
+     
     </div>
   );
 }

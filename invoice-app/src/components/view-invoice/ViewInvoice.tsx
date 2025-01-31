@@ -45,7 +45,9 @@ const ViewInvoice = () => {
   };
 
   useEffect(() => {
-    dispatch(getInvoiceById(id ?? ""));
+    if (id) {
+      dispatch(getInvoiceById(id));
+    }
   }, [dispatch, id, invoices]);
 
   return (
